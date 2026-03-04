@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shishir Bansal — Technical Architect, Salesforce</title>
+  <meta name="description" content="Shishir Bansal — Technical Architect at Salesforce. Systems thinker, builder, writer." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --bg:        #f7f5f0;
+      --ink:       #1a1a18;
+      --ink-soft:  #4a4a45;
+      --ink-muted: #8a8a82;
+      --accent:    #2a52a0;
+      --rule:      #dddbd4;
+      --font-serif: 'Lora', Georgia, serif;
+      --font-sans:  'IBM Plex Sans', sans-serif;
+      --font-mono:  'IBM Plex Mono', monospace;
+      --max-w: 640px;
+      --side: clamp(1.25rem, 5vw, 2.5rem);
+    }
+
+    html {
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--font-sans);
+      font-weight: 300;
+      line-height: 1.75;
+      min-height: 100vh;
+    }
+
+    /* ── Layout ── */
+    .site-wrap {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 var(--side);
+    }
+
+    /* ── Nav ── */
+    nav {
+      padding: 2rem 0 0;
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .nav-brand {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      color: var(--ink-soft);
+      text-decoration: none;
+    }
+
+    .nav-brand:hover { color: var(--ink); }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.04em;
+      color: var(--ink-muted);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+
+    .nav-links a:hover { color: var(--accent); }
+
+    /* ── Rule ── */
+    hr {
+      border: none;
+      border-top: 1px solid var(--rule);
+      margin: 2rem 0;
+    }
+
+    /* ── Hero ── */
+    .hero {
+      padding: 4rem 0 0;
+    }
+
+    .hero h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 6vw, 2.75rem);
+      font-weight: 400;
+      line-height: 1.2;
+      letter-spacing: -0.01em;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero p {
+      font-size: 1.0625rem;
+      line-height: 1.8;
+      color: var(--ink-soft);
+      max-width: 580px;
+    }
+
+    .hero p + p { margin-top: 1rem; }
+
+    .hero a {
+      color: var(--ink);
+      text-decoration: underline;
+      text-decoration-color: var(--rule);
+      text-underline-offset: 3px;
+      transition: text-decoration-color 0.15s;
+    }
+
+    .hero a:hover {
+      text-decoration-color: var(--accent);
+      color: var(--accent);
+    }
+
+    /* ── Affiliation strip ── */
+    .affiliation {
+      margin-top: 2rem;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.06em;
+      color: var(--ink-muted);
+      text-transform: uppercase;
+    }
+
+    /* ── Section ── */
+    section {
+      padding: 2.5rem 0;
+    }
+
+    section h2 {
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--ink-muted);
+      margin-bottom: 1.25rem;
+    }
+
+    section p {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: var(--ink-soft);
+    }
+
+    section p + p { margin-top: 0.875rem; }
+
+    section a {
+      color: var(--ink);
+      text-decoration: underline;
+      text-decoration-color: var(--rule);
+      text-underline-offset: 3px;
+      transition: color 0.15s, text-decoration-color 0.15s;
+    }
+
+    section a:hover {
+      color: var(--accent);
+      text-decoration-color: var(--accent);
+    }
+
+    /* ── Writing list ── */
+    .writing-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.1rem;
+    }
+
+    .writing-list li {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 1rem;
+      padding: 0.65rem 0;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .writing-list li:first-child {
+      border-top: 1px solid var(--rule);
+    }
+
+    .writing-list a {
+      font-size: 0.9375rem;
+      color: var(--ink);
+      text-decoration: none;
+      transition: color 0.15s;
+      flex: 1;
+    }
+
+    .writing-list a:hover { color: var(--accent); }
+
+    .writing-list .date {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--ink-muted);
+      white-space: nowrap;
+      letter-spacing: 0.03em;
+    }
+
+    .all-posts {
+      display: inline-block;
+      margin-top: 1.25rem;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.04em;
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .all-posts:hover { text-decoration: underline; }
+
+    /* ── Contact ── */
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin-top: 0.25rem;
+    }
+
+    .contact-links a {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      letter-spacing: 0.04em;
+      color: var(--ink-soft);
+      text-decoration: none;
+      border-bottom: 1px solid var(--rule);
+      padding-bottom: 2px;
+      transition: color 0.15s, border-color 0.15s;
+    }
+
+    .contact-links a:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+    }
+
+    /* ── Footer ── */
+    footer {
+      padding: 2.5rem 0 3rem;
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--ink-muted);
+      letter-spacing: 0.03em;
+    }
+
+    /* ── Fade-in on load ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(10px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero       { animation: fadeUp 0.6s ease both; }
+    hr:first-of-type { animation: fadeUp 0.6s 0.1s ease both; }
+    section:nth-of-type(1) { animation: fadeUp 0.6s 0.15s ease both; }
+    section:nth-of-type(2) { animation: fadeUp 0.6s 0.2s ease both; }
+    section:nth-of-type(3) { animation: fadeUp 0.6s 0.25s ease both; }
+    footer      { animation: fadeUp 0.6s 0.3s ease both; }
+
+    /* ── Responsive ── */
+    @media (max-width: 480px) {
+      nav { flex-direction: column; gap: 0.75rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="site-wrap">
+
+    <nav>
+      <a class="nav-brand" href="/">shishirbansal.in</a>
+      <ul class="nav-links">
+        <li><a href="#about">about</a></li>
+        <li><a href="#writing">writing</a></li>
+        <li><a href="#contact">contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="hero">
+      <h1>Shishir Bansal</h1>
+      <p>
+        I'm a <a href="#about">Technical Architect at Salesforce</a> — working at the intersection of
+        enterprise architecture, platform thinking, and engineering craft. I help organisations
+        design systems that scale, and teams that ship with confidence.
+      </p>
+      <p>
+        I write about technology, architecture decisions, and the quieter lessons
+        that don't make it into slide decks.
+      </p>
+      <p class="affiliation">Salesforce &nbsp;·&nbsp; Technical Architecture &nbsp;·&nbsp; India</p>
+    </div>
+
+    <hr />
+
+    <section id="about">
+      <h2>The story so far</h2>
+      <p>
+        Over the years I've worked deep inside enterprise technology — understanding
+        how large systems hold together (and how they come apart). At Salesforce, I work
+        as a Technical Architect, partnering with customers and internal teams to design
+        robust, scalable solutions on one of the world's most widely used platforms.
+      </p>
+      <p>
+        My work sits at the edge of architecture and product thinking — translating
+        complex business needs into systems that are simple to reason about, and hard
+        to accidentally break. I care about the craft of software and the clarity of
+        communication in equal measure.
+      </p>
+      <p>
+        Based in India. Working globally.
+      </p>
+    </section>
+
+    <hr />
+
+    <section id="writing">
+      <h2>Writing</h2>
+      <ul class="writing-list">
+        <li>
+          <a href="#">Coming soon — first post in progress</a>
+          <span class="date">2026</span>
+        </li>
+      </ul>
+      <a class="all-posts" href="#">All posts →</a>
+    </section>
+
+    <hr />
+
+    <section id="contact">
+      <h2>Get in touch</h2>
+      <p>
+        If you're working through a hard architectural problem, thinking about Salesforce
+        platform strategy, or just want to have a good conversation — I'd like to hear from you.
+      </p>
+      <div class="contact-links">
+        <a href="mailto:your@email.com">email ↗</a>
+        <a href="https://twitter.com/yourhandle" target="_blank" rel="noopener">twitter / x ↗</a>
+        <a href="https://www.linkedin.com/in/shishirbansal/" target="_blank" rel="noopener">linkedin ↗</a>
+      </div>
+    </section>
+
+    <hr />
+
+    <footer>
+      © 2026 Shishir Bansal. Written by me. Updated when something worth saying comes along.
+    </footer>
+
+  </div>
+</body>
+</html>
