@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -17,14 +17,29 @@
       padding: 0;
     }
 
-    :root {
-      --bg:        #fffff8;
-      --ink:       #111111;
-      --ink-light: #555550;
-      --ink-muted: #999990;
-      --max-w:     1400px;
-      --col-w:     720px;
-      --side:      clamp(2rem, 6vw, 8rem);
+    /* ── Light theme (default) ── */
+    :root,
+    [data-theme="light"] {
+      --bg:           #fffff8;
+      --ink:          #111111;
+      --ink-light:    #555550;
+      --ink-muted:    #999990;
+      --rule:         #e5e5dc;
+      --link-ul:      #c8c8b8;
+      --toggle-bg:    #e8e8e0;
+      --toggle-icon:  #555550;
+    }
+
+    /* ── Dark theme ── */
+    [data-theme="dark"] {
+      --bg:           #141412;
+      --ink:          #e8e6df;
+      --ink-light:    #a8a898;
+      --ink-muted:    #666660;
+      --rule:         #2e2e2a;
+      --link-ul:      #444440;
+      --toggle-bg:    #2a2a26;
+      --toggle-icon:  #a8a89a;
     }
 
     html {
@@ -40,27 +55,32 @@
       font-weight: 300;
       line-height: 1.85;
       min-height: 100vh;
+      transition: background 0.25s ease, color 0.25s ease;
     }
 
-    /* ── Outer wrapper — controls side padding ── */
     .wrap {
-      max-width: var(--max-w);
+      max-width: 1400px;
       margin: 0 auto;
-      padding: 0 var(--side);
+      padding: 0 clamp(2rem, 6vw, 8rem);
     }
 
-    /* ── Inner column — controls readable text width ── */
     .col {
-      max-width: var(--col-w);
+      max-width: 720px;
     }
 
     /* ── Nav ── */
     nav {
       padding: 2.5rem 0 0;
       display: flex;
-      align-items: baseline;
+      align-items: center;
       justify-content: space-between;
       gap: 1rem;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: baseline;
+      gap: 2rem;
     }
 
     .nav-brand {
@@ -69,7 +89,6 @@
       font-weight: 400;
       color: var(--ink-light);
       text-decoration: none;
-      letter-spacing: 0.01em;
     }
 
     .nav-brand:hover { color: var(--ink); }
@@ -90,6 +109,40 @@
 
     .nav-links a:hover { color: var(--ink); }
 
+    /* ── Theme toggle ── */
+    .theme-toggle {
+      background: var(--toggle-bg);
+      border: none;
+      cursor: pointer;
+      width: 2rem;
+      height: 2rem;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: background 0.25s ease;
+      padding: 0;
+    }
+
+    .theme-toggle:hover {
+      background: var(--rule);
+    }
+
+    .theme-toggle svg {
+      width: 0.9rem;
+      height: 0.9rem;
+      color: var(--toggle-icon);
+      transition: color 0.25s ease;
+    }
+
+    /* Show sun in dark mode, moon in light mode */
+    .icon-moon { display: block; }
+    .icon-sun  { display: none;  }
+
+    [data-theme="dark"] .icon-moon { display: none;  }
+    [data-theme="dark"] .icon-sun  { display: block; }
+
     /* ── Hero ── */
     .hero {
       padding: 5rem 0 0;
@@ -109,7 +162,7 @@
       line-height: 1.85;
       color: var(--ink);
       margin-bottom: 1rem;
-      max-width: var(--col-w);
+      max-width: 720px;
     }
 
     .hero .affiliation {
@@ -139,7 +192,7 @@
       line-height: 1.85;
       color: var(--ink);
       margin-bottom: 1rem;
-      max-width: var(--col-w);
+      max-width: 720px;
     }
 
     .section p:last-child { margin-bottom: 0; }
@@ -149,7 +202,7 @@
     .section p a {
       color: var(--ink);
       text-decoration: underline;
-      text-decoration-color: #c8c8b8;
+      text-decoration-color: var(--link-ul);
       text-underline-offset: 3px;
       transition: text-decoration-color 0.15s;
     }
@@ -163,7 +216,7 @@
     .writing-list {
       list-style: none;
       margin-top: 0.25rem;
-      max-width: var(--col-w);
+      max-width: 720px;
     }
 
     .writing-list li {
@@ -172,11 +225,11 @@
       align-items: baseline;
       gap: 2rem;
       padding: 0.7rem 0;
-      border-bottom: 1px solid #e5e5dc;
+      border-bottom: 1px solid var(--rule);
     }
 
     .writing-list li:first-child {
-      border-top: 1px solid #e5e5dc;
+      border-top: 1px solid var(--rule);
     }
 
     .writing-list a {
@@ -252,32 +305,65 @@
 
     nav    { animation: fadeIn 0.5s ease both; }
     .hero  { animation: fadeIn 0.5s 0.05s ease both; }
-    .section:nth-of-type(1) { animation: fadeIn 0.5s 0.1s  ease both; }
+    .section:nth-of-type(1) { animation: fadeIn 0.5s 0.10s ease both; }
     .section:nth-of-type(2) { animation: fadeIn 0.5s 0.15s ease both; }
-    .section:nth-of-type(3) { animation: fadeIn 0.5s 0.2s  ease both; }
+    .section:nth-of-type(3) { animation: fadeIn 0.5s 0.20s ease both; }
     footer { animation: fadeIn 0.5s 0.25s ease both; }
 
     /* ── Mobile ── */
     @media (max-width: 600px) {
       html { font-size: 17px; }
-      :root { --side: 1.5rem; }
+      .wrap { padding: 0 1.5rem; }
       .hero { padding-top: 3.5rem; }
       .section { padding-top: 2.75rem; }
       .writing-list li { flex-direction: column; gap: 0.15rem; }
-      nav { flex-wrap: wrap; gap: 0.75rem; }
+      .nav-left { gap: 1.25rem; }
+      .nav-links { gap: 1rem; }
     }
   </style>
+
+  <!-- Apply saved theme before paint to avoid flash -->
+  <script>
+    (function() {
+      const saved = localStorage.getItem('theme');
+      if (saved) document.documentElement.setAttribute('data-theme', saved);
+      else if (window.matchMedia('(prefers-color-scheme: dark)').matches)
+        document.documentElement.setAttribute('data-theme', 'dark');
+    })();
+  </script>
 </head>
 <body>
   <div class="wrap">
 
     <nav>
-      <a class="nav-brand" href="/">shishirbansal.in</a>
-      <ul class="nav-links">
-        <li><a href="#about">about</a></li>
-        <li><a href="#writing">writing</a></li>
-        <li><a href="#contact">contact</a></li>
-      </ul>
+      <div class="nav-left">
+        <a class="nav-brand" href="/">shishirbansal.in</a>
+        <ul class="nav-links">
+          <li><a href="#about">about</a></li>
+          <li><a href="#writing">writing</a></li>
+          <li><a href="#contact">contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Theme toggle -->
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+        <!-- Moon: shown in light mode -->
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+        <!-- Sun: shown in dark mode -->
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="5"/>
+          <line x1="12" y1="1" x2="12" y2="3"/>
+          <line x1="12" y1="21" x2="12" y2="23"/>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+          <line x1="1" y1="12" x2="3" y2="12"/>
+          <line x1="21" y1="12" x2="23" y2="12"/>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+        </svg>
+      </button>
     </nav>
 
     <div class="hero col">
@@ -330,10 +416,25 @@
         platform strategy, or just want to have a good conversation — I'd like to hear from you.
       </p>
       <div class="contact-links">
-        <a href="/cdn-cgi/l/email-protection#a8dbc0c1dbc0c1dacac9c6dbc9c49199e8cfc5c9c1c486cbc7c5">email</a>
+        <a href="mailto:shishirbansal91@gmail.com">email</a>
         <a href="https://www.linkedin.com/in/shishirbansal/" target="_blank" rel="noopener">linkedin</a>
       </div>
     </div>
 
     <footer>
-      © 2026 Shishir Bansal. Written by me. Updated when something worth saying comes
+      © 2026 Shishir Bansal. Written by me. Updated when something worth saying comes along.
+    </footer>
+
+  </div>
+
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    toggle.addEventListener('click', () => {
+      const current = document.documentElement.getAttribute('data-theme');
+      const next = current === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+    });
+  </script>
+</body>
+</html>
