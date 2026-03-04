@@ -18,13 +18,13 @@
     }
 
     :root {
-      --bg:         #fffff8;
-      --ink:        #111111;
-      --ink-light:  #555550;
-      --ink-muted:  #999990;
-      --link:       #111111;
-      --max-w:      580px;
-      --side:       clamp(1.5rem, 6vw, 3rem);
+      --bg:        #fffff8;
+      --ink:       #111111;
+      --ink-light: #555550;
+      --ink-muted: #999990;
+      --max-w:     860px;
+      --col-w:     600px;
+      --side:      clamp(2rem, 7vw, 6rem);
     }
 
     html {
@@ -42,15 +42,21 @@
       min-height: 100vh;
     }
 
+    /* ── Outer wrapper — controls side padding ── */
     .wrap {
       max-width: var(--max-w);
       margin: 0 auto;
       padding: 0 var(--side);
     }
 
+    /* ── Inner column — controls readable text width ── */
+    .col {
+      max-width: var(--col-w);
+    }
+
     /* ── Nav ── */
     nav {
-      padding: 2.25rem 0 0;
+      padding: 2.5rem 0 0;
       display: flex;
       align-items: baseline;
       justify-content: space-between;
@@ -59,7 +65,7 @@
 
     .nav-brand {
       font-family: 'Source Sans 3', sans-serif;
-      font-size: 0.8rem;
+      font-size: 0.82rem;
       font-weight: 400;
       color: var(--ink-light);
       text-decoration: none;
@@ -71,16 +77,15 @@
     .nav-links {
       list-style: none;
       display: flex;
-      gap: 1.5rem;
+      gap: 1.75rem;
     }
 
     .nav-links a {
       font-family: 'Source Sans 3', sans-serif;
-      font-size: 0.8rem;
+      font-size: 0.82rem;
       font-weight: 400;
       color: var(--ink-light);
       text-decoration: none;
-      letter-spacing: 0.01em;
     }
 
     .nav-links a:hover { color: var(--ink); }
@@ -92,7 +97,7 @@
 
     .hero h1 {
       font-family: 'Source Serif 4', Georgia, serif;
-      font-size: clamp(1.9rem, 5vw, 2.5rem);
+      font-size: clamp(2rem, 4.5vw, 2.75rem);
       font-weight: 400;
       line-height: 1.15;
       letter-spacing: -0.02em;
@@ -100,50 +105,51 @@
     }
 
     .hero p {
-      font-size: 1rem;
+      font-size: 1.0625rem;
       line-height: 1.85;
       color: var(--ink);
       margin-bottom: 1rem;
+      max-width: var(--col-w);
     }
 
     .hero .affiliation {
       margin-top: 1.75rem;
       font-family: 'Source Sans 3', sans-serif;
       font-size: 0.72rem;
-      font-weight: 400;
       color: var(--ink-muted);
-      letter-spacing: 0.08em;
+      letter-spacing: 0.09em;
       text-transform: uppercase;
     }
 
     /* ── Sections ── */
     .section {
-      padding: 3.5rem 0 0;
+      padding: 3.75rem 0 0;
     }
 
     .section h2 {
       font-family: 'Source Serif 4', Georgia, serif;
-      font-size: 1.1rem;
+      font-size: 1.125rem;
       font-weight: 400;
       color: var(--ink);
       margin-bottom: 1rem;
     }
 
     .section p {
-      font-size: 1rem;
+      font-size: 1.0625rem;
       line-height: 1.85;
       color: var(--ink);
       margin-bottom: 1rem;
+      max-width: var(--col-w);
     }
 
     .section p:last-child { margin-bottom: 0; }
 
-    /* ── Links ── */
+    /* ── Inline links ── */
     .hero p a,
     .section p a {
       color: var(--ink);
       text-decoration: underline;
-      text-decoration-color: #ccccbb;
+      text-decoration-color: #c8c8b8;
       text-underline-offset: 3px;
       transition: text-decoration-color 0.15s;
     }
@@ -157,6 +163,7 @@
     .writing-list {
       list-style: none;
       margin-top: 0.25rem;
+      max-width: var(--col-w);
     }
 
     .writing-list li {
@@ -164,7 +171,7 @@
       justify-content: space-between;
       align-items: baseline;
       gap: 2rem;
-      padding: 0.65rem 0;
+      padding: 0.7rem 0;
       border-bottom: 1px solid #e5e5dc;
     }
 
@@ -173,7 +180,7 @@
     }
 
     .writing-list a {
-      font-size: 0.9375rem;
+      font-size: 1rem;
       color: var(--ink);
       text-decoration: none;
       flex: 1;
@@ -196,7 +203,7 @@
       display: inline-block;
       margin-top: 1.25rem;
       font-family: 'Source Sans 3', sans-serif;
-      font-size: 0.825rem;
+      font-size: 0.85rem;
       color: var(--ink-light);
       text-decoration: none;
     }
@@ -207,7 +214,7 @@
       text-underline-offset: 3px;
     }
 
-    /* ── Contact links ── */
+    /* ── Contact ── */
     .contact-links {
       display: flex;
       flex-wrap: wrap;
@@ -217,7 +224,7 @@
 
     .contact-links a {
       font-family: 'Source Sans 3', sans-serif;
-      font-size: 0.85rem;
+      font-size: 0.875rem;
       color: var(--ink-light);
       text-decoration: none;
     }
@@ -230,14 +237,14 @@
 
     /* ── Footer ── */
     footer {
-      padding: 4.5rem 0 3.5rem;
+      padding: 5rem 0 3.5rem;
       font-family: 'Source Sans 3', sans-serif;
       font-size: 0.72rem;
       color: var(--ink-muted);
       letter-spacing: 0.02em;
     }
 
-    /* ── Fade in ── */
+    /* ── Animations ── */
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(6px); }
       to   { opacity: 1; transform: translateY(0); }
@@ -245,18 +252,19 @@
 
     nav    { animation: fadeIn 0.5s ease both; }
     .hero  { animation: fadeIn 0.5s 0.05s ease both; }
-    .section:nth-of-type(1) { animation: fadeIn 0.5s 0.1s ease both; }
+    .section:nth-of-type(1) { animation: fadeIn 0.5s 0.1s  ease both; }
     .section:nth-of-type(2) { animation: fadeIn 0.5s 0.15s ease both; }
-    .section:nth-of-type(3) { animation: fadeIn 0.5s 0.2s ease both; }
+    .section:nth-of-type(3) { animation: fadeIn 0.5s 0.2s  ease both; }
     footer { animation: fadeIn 0.5s 0.25s ease both; }
 
     /* ── Mobile ── */
-    @media (max-width: 520px) {
+    @media (max-width: 600px) {
       html { font-size: 17px; }
+      :root { --side: 1.5rem; }
       .hero { padding-top: 3.5rem; }
       .section { padding-top: 2.75rem; }
-      .writing-list li { flex-direction: column; gap: 0.1rem; }
-      nav { flex-wrap: wrap; }
+      .writing-list li { flex-direction: column; gap: 0.15rem; }
+      nav { flex-wrap: wrap; gap: 0.75rem; }
     }
   </style>
 </head>
@@ -272,7 +280,7 @@
       </ul>
     </nav>
 
-    <div class="hero">
+    <div class="hero col">
       <h1>Shishir Bansal</h1>
       <p>
         I'm a <a href="#about">Technical Architect at Salesforce</a> — working at the intersection of
@@ -301,9 +309,7 @@
         and hard to accidentally break. I care about the craft of software and the
         clarity of communication in equal measure.
       </p>
-      <p>
-        Based in India. Working globally.
-      </p>
+      <p>Based in India. Working globally.</p>
     </div>
 
     <div class="section" id="writing">
