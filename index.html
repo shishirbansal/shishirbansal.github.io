@@ -1,338 +1,569 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Shishir Bansal — Technical Architect & Technology Leader</title>
-  <meta name="description" content="Shishir Bansal — Technical Architect at Salesforce. Systems thinker, builder, writer." />
+  <title>Quiet Build — Notes on Tech, Life, and Travel</title>
+  <meta name="description" content="A quiet corner for technical notes, daily reflections, travel stories, and habit experiments." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;1,8..60,300;1,8..60,400&family=Source+Sans+3:wght@300;400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500&display=swap" rel="stylesheet" />
 
   <style>
-    *, *::before, *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
+    :root,
+    [data-theme="light"] {
+      --bg: #f8f8f6;
+      --surface: #ffffff;
+      --surface-alt: #f2f2ef;
+      --text: #191919;
+      --text-soft: #5a5a55;
+      --line: #e5e5df;
+      --brand: #2e7df6;
+      --brand-soft: #eaf2ff;
+      --shadow: 0 8px 30px rgba(23, 23, 20, 0.07);
     }
 
-    :root {
-      --bg:         #fffff8;
-      --ink:        #111111;
-      --ink-light:  #555550;
-      --ink-muted:  #999990;
-      --link:       #111111;
-      --max-w:      580px;
-      --side:       clamp(1.5rem, 6vw, 3rem);
+    [data-theme="dark"] {
+      --bg: #131313;
+      --surface: #1b1b1a;
+      --surface-alt: #242423;
+      --text: #f2f2ef;
+      --text-soft: #b2b2ab;
+      --line: #2f2f2c;
+      --brand: #77a8ff;
+      --brand-soft: #1d2738;
+      --shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
     }
+
+    * { box-sizing: border-box; }
 
     html {
-      font-size: 18px;
-      -webkit-font-smoothing: antialiased;
-      text-rendering: optimizeLegibility;
+      font-size: 17px;
+      scroll-behavior: smooth;
     }
 
     body {
-      background: var(--bg);
-      color: var(--ink);
-      font-family: 'Source Serif 4', Georgia, serif;
-      font-weight: 300;
-      line-height: 1.85;
-      min-height: 100vh;
+      margin: 0;
+      background:
+        radial-gradient(circle at 20% -10%, rgba(46,125,246,0.08), transparent 35%),
+        radial-gradient(circle at 95% 10%, rgba(120,120,120,0.08), transparent 30%),
+        var(--bg);
+      color: var(--text);
+      font-family: Inter, system-ui, -apple-system, sans-serif;
+      line-height: 1.65;
+      transition: background 0.3s ease, color 0.3s ease;
     }
 
     .wrap {
-      max-width: var(--max-w);
+      width: min(1100px, 92vw);
       margin: 0 auto;
-      padding: 0 var(--side);
     }
 
-    /* ── Nav ── */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(8px);
+      background: color-mix(in srgb, var(--bg) 84%, transparent);
+      border-bottom: 1px solid var(--line);
+    }
+
     nav {
-      padding: 2.25rem 0 0;
+      height: 4rem;
       display: flex;
-      align-items: baseline;
+      align-items: center;
       justify-content: space-between;
       gap: 1rem;
     }
 
-    .nav-brand {
-      font-family: 'Source Sans 3', sans-serif;
-      font-size: 0.8rem;
-      font-weight: 400;
-      color: var(--ink-light);
+    .brand {
+      font-weight: 700;
       text-decoration: none;
-      letter-spacing: 0.01em;
-    }
-
-    .nav-brand:hover { color: var(--ink); }
-
-    .nav-links {
-      list-style: none;
+      color: var(--text);
+      letter-spacing: -0.02em;
       display: flex;
-      gap: 1.5rem;
+      align-items: center;
+      gap: 0.55rem;
     }
 
-    .nav-links a {
-      font-family: 'Source Sans 3', sans-serif;
-      font-size: 0.8rem;
-      font-weight: 400;
-      color: var(--ink-light);
+    .dot {
+      width: 0.55rem;
+      height: 0.55rem;
+      border-radius: 999px;
+      background: var(--brand);
+      box-shadow: 0 0 0 5px var(--brand-soft);
+    }
+
+    .menu {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .menu a,
+    .theme-toggle {
+      border: 1px solid var(--line);
+      background: var(--surface);
+      color: var(--text-soft);
       text-decoration: none;
-      letter-spacing: 0.01em;
+      font-size: 0.8rem;
+      font-weight: 500;
+      padding: 0.45rem 0.75rem;
+      border-radius: 999px;
+      transition: 0.2s ease;
+      cursor: pointer;
     }
 
-    .nav-links a:hover { color: var(--ink); }
+    .menu a:hover,
+    .theme-toggle:hover {
+      color: var(--text);
+      border-color: color-mix(in srgb, var(--brand) 30%, var(--line));
+    }
 
-    /* ── Hero ── */
     .hero {
-      padding: 5rem 0 0;
+      padding: clamp(2.2rem, 5vw, 4rem) 0 1.2rem;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 1.2rem;
+      align-items: stretch;
+    }
+
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 1rem;
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-main {
+      padding: clamp(1.1rem, 2.6vw, 2rem);
     }
 
     .hero h1 {
-      font-family: 'Source Serif 4', Georgia, serif;
-      font-size: clamp(1.9rem, 5vw, 2.5rem);
-      font-weight: 400;
-      line-height: 1.15;
+      margin: 0 0 0.9rem;
+      font-family: "Source Serif 4", Georgia, serif;
+      font-size: clamp(1.85rem, 5vw, 3rem);
+      line-height: 1.12;
       letter-spacing: -0.02em;
-      margin-bottom: 1.75rem;
     }
 
     .hero p {
-      font-size: 1rem;
-      line-height: 1.85;
-      color: var(--ink);
-      margin-bottom: 1rem;
+      margin: 0 0 1rem;
+      color: var(--text-soft);
+      max-width: 62ch;
     }
 
-    .hero .affiliation {
-      margin-top: 1.75rem;
-      font-family: 'Source Sans 3', sans-serif;
-      font-size: 0.72rem;
-      font-weight: 400;
-      color: var(--ink-muted);
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    /* ── Sections ── */
-    .section {
-      padding: 3.5rem 0 0;
-    }
-
-    .section h2 {
-      font-family: 'Source Serif 4', Georgia, serif;
-      font-size: 1.1rem;
-      font-weight: 400;
-      color: var(--ink);
-      margin-bottom: 1rem;
-    }
-
-    .section p {
-      font-size: 1rem;
-      line-height: 1.85;
-      color: var(--ink);
-      margin-bottom: 1rem;
-    }
-
-    .section p:last-child { margin-bottom: 0; }
-
-    /* ── Links ── */
-    .hero p a,
-    .section p a {
-      color: var(--ink);
-      text-decoration: underline;
-      text-decoration-color: #ccccbb;
-      text-underline-offset: 3px;
-      transition: text-decoration-color 0.15s;
-    }
-
-    .hero p a:hover,
-    .section p a:hover {
-      text-decoration-color: var(--ink);
-    }
-
-    /* ── Writing list ── */
-    .writing-list {
-      list-style: none;
-      margin-top: 0.25rem;
-    }
-
-    .writing-list li {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      gap: 2rem;
-      padding: 0.65rem 0;
-      border-bottom: 1px solid #e5e5dc;
-    }
-
-    .writing-list li:first-child {
-      border-top: 1px solid #e5e5dc;
-    }
-
-    .writing-list a {
-      font-size: 0.9375rem;
-      color: var(--ink);
-      text-decoration: none;
-      flex: 1;
-    }
-
-    .writing-list a:hover {
-      text-decoration: underline;
-      text-underline-offset: 3px;
-    }
-
-    .writing-list .date {
-      font-family: 'Source Sans 3', sans-serif;
-      font-size: 0.7rem;
-      color: var(--ink-muted);
-      white-space: nowrap;
-      letter-spacing: 0.03em;
-    }
-
-    .all-posts {
-      display: inline-block;
-      margin-top: 1.25rem;
-      font-family: 'Source Sans 3', sans-serif;
-      font-size: 0.825rem;
-      color: var(--ink-light);
-      text-decoration: none;
-    }
-
-    .all-posts:hover {
-      color: var(--ink);
-      text-decoration: underline;
-      text-underline-offset: 3px;
-    }
-
-    /* ── Contact links ── */
-    .contact-links {
+    .chips {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.25rem 2rem;
-      margin-top: 0.875rem;
+      gap: 0.45rem;
+      margin: 1.15rem 0;
     }
 
-    .contact-links a {
-      font-family: 'Source Sans 3', sans-serif;
-      font-size: 0.85rem;
-      color: var(--ink-light);
+    .chip {
+      padding: 0.35rem 0.7rem;
+      border-radius: 999px;
+      background: var(--surface-alt);
+      border: 1px solid var(--line);
+      font-size: 0.76rem;
+      color: var(--text-soft);
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.65rem;
+      margin-top: 1.1rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.35rem;
+      border-radius: 0.7rem;
+      border: 1px solid var(--line);
+      padding: 0.56rem 0.9rem;
+      font-size: 0.83rem;
       text-decoration: none;
+      font-weight: 600;
     }
 
-    .contact-links a:hover {
-      color: var(--ink);
-      text-decoration: underline;
-      text-underline-offset: 3px;
+    .btn.primary {
+      background: var(--text);
+      color: var(--bg);
+      border-color: transparent;
     }
 
-    /* ── Footer ── */
-    footer {
-      padding: 4.5rem 0 3.5rem;
-      font-family: 'Source Sans 3', sans-serif;
-      font-size: 0.72rem;
-      color: var(--ink-muted);
-      letter-spacing: 0.02em;
+    .btn.secondary {
+      background: var(--surface);
+      color: var(--text-soft);
     }
 
-    /* ── Fade in ── */
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(6px); }
-      to   { opacity: 1; transform: translateY(0); }
+    .hero-side {
+      padding: 1.2rem;
+      display: grid;
+      gap: 0.75rem;
+      align-content: start;
     }
 
-    nav    { animation: fadeIn 0.5s ease both; }
-    .hero  { animation: fadeIn 0.5s 0.05s ease both; }
-    .section:nth-of-type(1) { animation: fadeIn 0.5s 0.1s ease both; }
-    .section:nth-of-type(2) { animation: fadeIn 0.5s 0.15s ease both; }
-    .section:nth-of-type(3) { animation: fadeIn 0.5s 0.2s ease both; }
-    footer { animation: fadeIn 0.5s 0.25s ease both; }
+    .stat {
+      background: var(--surface-alt);
+      border: 1px solid var(--line);
+      border-radius: 0.7rem;
+      padding: 0.75rem;
+    }
 
-    /* ── Mobile ── */
-    @media (max-width: 520px) {
-      html { font-size: 17px; }
-      .hero { padding-top: 3.5rem; }
-      .section { padding-top: 2.75rem; }
-      .writing-list li { flex-direction: column; gap: 0.1rem; }
-      nav { flex-wrap: wrap; }
+    .stat .k {
+      font-size: 0.74rem;
+      color: var(--text-soft);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .stat .v {
+      font-size: 1.05rem;
+      margin-top: 0.15rem;
+      font-weight: 600;
+    }
+
+    section {
+      margin: 1rem 0;
+    }
+
+    .section-card {
+      padding: 1rem;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+      margin-bottom: 0.8rem;
+    }
+
+    h2 {
+      font-size: 1rem;
+      margin: 0;
+      letter-spacing: -0.01em;
+    }
+
+    .muted {
+      color: var(--text-soft);
+      font-size: 0.88rem;
+    }
+
+    .filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+    }
+
+    .filter-btn {
+      border: 1px solid var(--line);
+      background: var(--surface-alt);
+      color: var(--text-soft);
+      border-radius: 999px;
+      padding: 0.34rem 0.7rem;
+      font-size: 0.75rem;
+      cursor: pointer;
+    }
+
+    .filter-btn.active {
+      color: var(--brand);
+      border-color: color-mix(in srgb, var(--brand) 45%, var(--line));
+      background: var(--brand-soft);
+    }
+
+    .notes-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.7rem;
+    }
+
+    .note {
+      border: 1px solid var(--line);
+      border-radius: 0.8rem;
+      padding: 0.8rem;
+      background: var(--surface);
+      display: grid;
+      gap: 0.45rem;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .note:hover {
+      transform: translateY(-2px);
+      border-color: color-mix(in srgb, var(--brand) 20%, var(--line));
+    }
+
+    .tag {
+      font-size: 0.7rem;
+      color: var(--text-soft);
+      width: fit-content;
+      padding: 0.2rem 0.52rem;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: var(--surface-alt);
+    }
+
+    .note strong {
+      font-size: 0.92rem;
+      line-height: 1.4;
+    }
+
+    .timeline {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 0.65rem;
+    }
+
+    .timeline li {
+      display: grid;
+      grid-template-columns: 110px 1fr;
+      gap: 0.7rem;
+      align-items: start;
+      padding-bottom: 0.65rem;
+      border-bottom: 1px dashed var(--line);
+    }
+
+    .timeline time {
+      font-size: 0.75rem;
+      color: var(--text-soft);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    details {
+      border: 1px solid var(--line);
+      border-radius: 0.75rem;
+      padding: 0.7rem 0.8rem;
+      background: var(--surface-alt);
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .footer {
+      margin: 2rem 0;
+      font-size: 0.78rem;
+      color: var(--text-soft);
+      text-align: center;
+    }
+
+    .reveal { opacity: 0; transform: translateY(8px); }
+    .reveal.show { opacity: 1; transform: translateY(0); transition: all 0.45s ease; }
+
+    @media (max-width: 960px) {
+      .hero { grid-template-columns: 1fr; }
+      .notes-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 620px) {
+      nav { height: auto; padding: 0.8rem 0; align-items: flex-start; }
+      .menu { justify-content: flex-start; }
+      .notes-grid { grid-template-columns: 1fr; }
+      .timeline li { grid-template-columns: 1fr; gap: 0.25rem; }
+      .hero-main, .hero-side, .section-card { padding: 0.9rem; }
     }
   </style>
+
+  <script>
+    (function () {
+      const saved = localStorage.getItem('theme');
+      if (saved) document.documentElement.setAttribute('data-theme', saved);
+      else if (window.matchMedia('(prefers-color-scheme: dark)').matches)
+        document.documentElement.setAttribute('data-theme', 'dark');
+    })();
+  </script>
 </head>
 <body>
-  <div class="wrap">
-
-    <nav>
-      <a class="nav-brand" href="/">shishirbansal.in</a>
-      <ul class="nav-links">
-        <li><a href="#about">about</a></li>
-        <li><a href="#writing">writing</a></li>
-        <li><a href="#contact">contact</a></li>
-      </ul>
-    </nav>
-
-    <div class="hero">
-      <h1>Shishir Bansal</h1>
-      <p>
-        I'm a <a href="#about">Technical Architect at Salesforce</a> — working at the intersection of
-        enterprise architecture, platform thinking, and engineering craft. I help organisations
-        design systems that scale well, and teams that ship with confidence.
-      </p>
-      <p>
-        I write about technology, architecture decisions, and the quieter lessons
-        that rarely make it into slide decks.
-      </p>
-      <p class="affiliation">Salesforce &nbsp;·&nbsp; Technical Architecture &nbsp;·&nbsp; India</p>
+  <div class="topbar">
+    <div class="wrap">
+      <nav>
+        <a class="brand" href="/">
+          <span class="dot"></span>
+          Quiet Build
+        </a>
+        <div class="menu">
+          <a href="#explore">Explore</a>
+          <a href="#daily-log">Daily Log</a>
+          <a href="#now">Now</a>
+          <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">Theme</button>
+        </div>
+      </nav>
     </div>
-
-    <div class="section" id="about">
-      <h2>The story so far</h2>
-      <p>
-        I've spent my career working deep inside enterprise technology — learning
-        how large systems hold together, and understanding the moments when they come apart.
-        At <a href="https://salesforce.com" target="_blank" rel="noopener">Salesforce</a>,
-        I work as a Technical Architect, partnering with customers and internal teams to design
-        robust, scalable solutions on one of the world's most widely-used platforms.
-      </p>
-      <p>
-        My work sits at the edge of architecture and product thinking — translating
-        complex business requirements into systems that are simple to reason about,
-        and hard to accidentally break. I care about the craft of software and the
-        clarity of communication in equal measure.
-      </p>
-      <p>
-        Based in India. Working globally.
-      </p>
-    </div>
-
-    <div class="section" id="writing">
-      <h2>Writing</h2>
-      <ul class="writing-list">
-        <li>
-          <a href="#">First post coming soon</a>
-          <span class="date">2026</span>
-        </li>
-      </ul>
-      <a class="all-posts" href="#">All posts →</a>
-    </div>
-
-    <div class="section" id="contact">
-      <h2>Get in touch</h2>
-      <p>
-        If you're working through a hard architectural problem, thinking about Salesforce
-        platform strategy, or just want to have a good conversation — I'd like to hear from you.
-      </p>
-      <div class="contact-links">
-        <a href="mailto:shishirbansal91@gmail.com">email</a>
-        <a href="https://www.linkedin.com/in/shishirbansal/" target="_blank" rel="noopener">linkedin</a>
-      </div>
-    </div>
-
-    <footer>
-      © 2026 Shishir Bansal. Written by me. Updated when something worth saying comes along.
-    </footer>
-
   </div>
+
+  <main class="wrap">
+    <section class="hero">
+      <article class="card hero-main reveal">
+        <h1>Simple notes for a complex life.</h1>
+        <p>
+          A calm, mostly-anonymous corner of the internet for technical ideas, life reflections,
+          travel observations, and small habits that compound over time.
+        </p>
+        <div class="chips">
+          <span class="chip">Technical Notes</span>
+          <span class="chip">Life Learnings</span>
+          <span class="chip">Travel Logs</span>
+          <span class="chip">Habit Experiments</span>
+        </div>
+        <div class="cta-row">
+          <a class="btn primary" href="#explore">Start reading</a>
+          <a class="btn secondary" href="#daily-log">See daily log</a>
+        </div>
+      </article>
+
+      <aside class="card hero-side reveal" aria-label="Site highlights">
+        <div class="stat">
+          <div class="k">Writing style</div>
+          <div class="v">Short + practical</div>
+        </div>
+        <div class="stat">
+          <div class="k">Tone</div>
+          <div class="v">Honest, minimal, useful</div>
+        </div>
+        <div class="stat">
+          <div class="k">Update rhythm</div>
+          <div class="v">Whenever there is signal</div>
+        </div>
+      </aside>
+    </section>
+
+    <section id="explore">
+      <div class="card section-card reveal">
+        <div class="section-head">
+          <h2>Explore topics</h2>
+          <p class="muted">Filter by theme</p>
+        </div>
+
+        <div class="filters" role="tablist" aria-label="Filter notes">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="tech">Tech</button>
+          <button class="filter-btn" data-filter="life">Life</button>
+          <button class="filter-btn" data-filter="travel">Travel</button>
+          <button class="filter-btn" data-filter="habits">Habits</button>
+        </div>
+
+        <div class="notes-grid" style="margin-top: 0.8rem;">
+          <article class="note" data-tag="tech">
+            <span class="tag">Tech</span>
+            <strong>Architecture notes I wish I had before scaling a side project</strong>
+            <span class="muted">coming soon</span>
+          </article>
+          <article class="note" data-tag="life">
+            <span class="tag">Life</span>
+            <strong>What I learned from keeping a 5-minute daily reflection</strong>
+            <span class="muted">coming soon</span>
+          </article>
+          <article class="note" data-tag="travel">
+            <span class="tag">Travel</span>
+            <strong>Train journeys, silence, and seeing patterns more clearly</strong>
+            <span class="muted">coming soon</span>
+          </article>
+          <article class="note" data-tag="habits">
+            <span class="tag">Habits</span>
+            <strong>Tiny routines that survived busy workweeks</strong>
+            <span class="muted">coming soon</span>
+          </article>
+          <article class="note" data-tag="tech">
+            <span class="tag">Tech</span>
+            <strong>How I keep technical notes searchable and actually reusable</strong>
+            <span class="muted">coming soon</span>
+          </article>
+          <article class="note" data-tag="life">
+            <span class="tag">Life</span>
+            <strong>Energy management beats time management (most days)</strong>
+            <span class="muted">coming soon</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="daily-log">
+      <div class="card section-card reveal">
+        <div class="section-head">
+          <h2>Daily log</h2>
+          <p class="muted">Small updates, no fluff</p>
+        </div>
+
+        <ul class="timeline">
+          <li>
+            <time>Morning</time>
+            <span>Captured one production debugging pattern worth documenting for future me.</span>
+          </li>
+          <li>
+            <time>Afternoon</time>
+            <span>Walked without headphones. New ideas arrive faster when attention is less crowded.</span>
+          </li>
+          <li>
+            <time>Evening</time>
+            <span>Reviewed spending, reading, and movement streaks — consistency over intensity.</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="now">
+      <div class="card section-card reveal">
+        <div class="section-head">
+          <h2>Now</h2>
+          <p class="muted">Current focus snapshot</p>
+        </div>
+        <details open>
+          <summary>Building this site as a durable public notebook</summary>
+          <p class="muted">
+            The goal is to publish useful observations quickly, with enough structure to revisit and improve them later.
+          </p>
+        </details>
+      </div>
+    </section>
+
+    <p class="footer">© 2026 Quiet Build — written quietly, shared intentionally.</p>
+  </main>
+
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    toggle.addEventListener('click', () => {
+      const current = document.documentElement.getAttribute('data-theme');
+      const next = current === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+    });
+
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const notes = document.querySelectorAll('.note');
+
+    filterButtons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const selected = btn.dataset.filter;
+
+        filterButtons.forEach((b) => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        notes.forEach((note) => {
+          const visible = selected === 'all' || note.dataset.tag === selected;
+          note.style.display = visible ? 'grid' : 'none';
+        });
+      });
+    });
+
+    const revealItems = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) entry.target.classList.add('show');
+      });
+    }, { threshold: 0.15 });
+
+    revealItems.forEach((item) => observer.observe(item));
+  </script>
 </body>
 </html>
