@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Quiet Build — Notes on Tech, Life, and Travel</title>
-  <meta name="description" content="A quiet corner for technical notes, daily reflections, travel stories, and habit experiments." />
+  <meta name="description" content="A quiet corner on the internet for technical notes, daily reflections, travel stories, and habit experiments." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -385,147 +385,101 @@
   </script>
 </head>
 <body>
-  <div class="topbar">
-    <div class="wrap">
-      <nav>
-        <a class="brand" href="/">
-          <span class="dot"></span>
-          Quiet Build
-        </a>
-        <div class="menu">
-          <a href="#explore">Explore</a>
-          <a href="#daily-log">Daily Log</a>
-          <a href="#now">Now</a>
-          <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">Theme</button>
-        </div>
-      </nav>
+  <div class="wrap">
+
+    <nav>
+      <div class="nav-left">
+        <a class="nav-brand" href="/">quietbuild.notes</a>
+        <ul class="nav-links">
+          <li><a href="#about">about</a></li>
+          <li><a href="#writing">writing</a></li>
+          <li><a href="#contact">contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Theme toggle -->
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+        <!-- Moon: shown in light mode -->
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+        <!-- Sun: shown in dark mode -->
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="5"/>
+          <line x1="12" y1="1" x2="12" y2="3"/>
+          <line x1="12" y1="21" x2="12" y2="23"/>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+          <line x1="1" y1="12" x2="3" y2="12"/>
+          <line x1="21" y1="12" x2="23" y2="12"/>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+        </svg>
+      </button>
+    </nav>
+
+    <div class="hero col">
+      <h1>Quiet Build</h1>
+      <p>
+        Welcome — this is a personal, mostly-anonymous space where I share
+        <a href="#about">notes from work and life</a>.
+      </p>
+      <p>
+        Expect a mixed bag: technical deep-dives, quick daily learnings, travel moments,
+        and practical habits that make life and work a little better.
+      </p>
+      <p class="affiliation">Technical Notes &nbsp;·&nbsp; Life Logs &nbsp;·&nbsp; Travel &nbsp;·&nbsp; Habit Building</p>
+    </div>
+
+    <div class="section" id="about">
+      <h2>What this site is about</h2>
+      <p>
+        This website is intentionally simple: a place to collect ideas in public without needing
+        to over-polish everything. Some posts will be long-form technical writing, others will be
+        short field notes from projects, books, conversations, or daily routines.
+      </p>
+      <p>
+        Topics will include software architecture, engineering productivity, travel reflections,
+        and small experiments in consistency, health, and mindset. If it is useful, honest,
+        or worth remembering, it belongs here.
+      </p>
+      <p>Built one note at a time.</p>
+    </div>
+
+    <div class="section" id="writing">
+      <h2>Writing</h2>
+      <ul class="writing-list">
+        <li>
+          <a href="#">How I capture technical learnings from everyday work</a>
+          <span class="date">coming soon</span>
+        </li>
+        <li>
+          <a href="#">Travel notes: what moving through new places teaches me about systems</a>
+          <span class="date">coming soon</span>
+        </li>
+        <li>
+          <a href="#">Habit log: tiny routines that actually stick</a>
+          <span class="date">coming soon</span>
+        </li>
+      </ul>
+      <a class="all-posts" href="#">All posts →</a>
     </div>
   </div>
 
-  <main class="wrap">
-    <section class="hero">
-      <article class="card hero-main reveal">
-        <h1>Simple notes for a complex life.</h1>
-        <p>
-          A calm, mostly-anonymous corner of the internet for technical ideas, life reflections,
-          travel observations, and small habits that compound over time.
-        </p>
-        <div class="chips">
-          <span class="chip">Technical Notes</span>
-          <span class="chip">Life Learnings</span>
-          <span class="chip">Travel Logs</span>
-          <span class="chip">Habit Experiments</span>
-        </div>
-        <div class="cta-row">
-          <a class="btn primary" href="#explore">Start reading</a>
-          <a class="btn secondary" href="#daily-log">See daily log</a>
-        </div>
-      </article>
-
-      <aside class="card hero-side reveal" aria-label="Site highlights">
-        <div class="stat">
-          <div class="k">Writing style</div>
-          <div class="v">Short + practical</div>
-        </div>
-        <div class="stat">
-          <div class="k">Tone</div>
-          <div class="v">Honest, minimal, useful</div>
-        </div>
-        <div class="stat">
-          <div class="k">Update rhythm</div>
-          <div class="v">Whenever there is signal</div>
-        </div>
-      </aside>
-    </section>
-
-    <section id="explore">
-      <div class="card section-card reveal">
-        <div class="section-head">
-          <h2>Explore topics</h2>
-          <p class="muted">Filter by theme</p>
-        </div>
-
-        <div class="filters" role="tablist" aria-label="Filter notes">
-          <button class="filter-btn active" data-filter="all">All</button>
-          <button class="filter-btn" data-filter="tech">Tech</button>
-          <button class="filter-btn" data-filter="life">Life</button>
-          <button class="filter-btn" data-filter="travel">Travel</button>
-          <button class="filter-btn" data-filter="habits">Habits</button>
-        </div>
-
-        <div class="notes-grid" style="margin-top: 0.8rem;">
-          <article class="note" data-tag="tech">
-            <span class="tag">Tech</span>
-            <strong>Architecture notes I wish I had before scaling a side project</strong>
-            <span class="muted">coming soon</span>
-          </article>
-          <article class="note" data-tag="life">
-            <span class="tag">Life</span>
-            <strong>What I learned from keeping a 5-minute daily reflection</strong>
-            <span class="muted">coming soon</span>
-          </article>
-          <article class="note" data-tag="travel">
-            <span class="tag">Travel</span>
-            <strong>Train journeys, silence, and seeing patterns more clearly</strong>
-            <span class="muted">coming soon</span>
-          </article>
-          <article class="note" data-tag="habits">
-            <span class="tag">Habits</span>
-            <strong>Tiny routines that survived busy workweeks</strong>
-            <span class="muted">coming soon</span>
-          </article>
-          <article class="note" data-tag="tech">
-            <span class="tag">Tech</span>
-            <strong>How I keep technical notes searchable and actually reusable</strong>
-            <span class="muted">coming soon</span>
-          </article>
-          <article class="note" data-tag="life">
-            <span class="tag">Life</span>
-            <strong>Energy management beats time management (most days)</strong>
-            <span class="muted">coming soon</span>
-          </article>
-        </div>
+    <div class="section" id="contact">
+      <h2>Get in touch</h2>
+      <p>
+        For now, this space stays low-profile and focused on writing.
+        If you found something useful, feel free to check back for updates.
+      </p>
+      <div class="contact-links">
+        <a href="#writing">read the latest notes</a>
       </div>
-    </section>
+    </div>
 
-    <section id="daily-log">
-      <div class="card section-card reveal">
-        <div class="section-head">
-          <h2>Daily log</h2>
-          <p class="muted">Small updates, no fluff</p>
-        </div>
-
-        <ul class="timeline">
-          <li>
-            <time>Morning</time>
-            <span>Captured one production debugging pattern worth documenting for future me.</span>
-          </li>
-          <li>
-            <time>Afternoon</time>
-            <span>Walked without headphones. New ideas arrive faster when attention is less crowded.</span>
-          </li>
-          <li>
-            <time>Evening</time>
-            <span>Reviewed spending, reading, and movement streaks — consistency over intensity.</span>
-          </li>
-        </ul>
-      </div>
-    </section>
-
-    <section id="now">
-      <div class="card section-card reveal">
-        <div class="section-head">
-          <h2>Now</h2>
-          <p class="muted">Current focus snapshot</p>
-        </div>
-        <details open>
-          <summary>Building this site as a durable public notebook</summary>
-          <p class="muted">
-            The goal is to publish useful observations quickly, with enough structure to revisit and improve them later.
-          </p>
-        </details>
-      </div>
-    </section>
+    <footer>
+      © 2026 Quiet Build. Updated when there is something real to share.
+    </footer>
 
     <p class="footer">© 2026 Quiet Build — written quietly, shared intentionally.</p>
   </main>
