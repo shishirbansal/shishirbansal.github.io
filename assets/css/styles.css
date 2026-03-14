@@ -345,13 +345,30 @@ h2 {
   color: var(--text);
 }
 
-.technical-note-children li::marker {
-  color: var(--brand);
+.technical-note-children li {
+  padding-left: 0.2rem;
+  display: grid;
+  gap: 0.2rem;
+}
+
+.technical-note-link {
+  color: var(--text);
+  text-decoration: none;
   font-weight: 600;
 }
 
-.technical-note-children li {
-  padding-left: 0.2rem;
+.technical-note-link:hover {
+  color: var(--brand);
+}
+
+.technical-note-children time {
+  font-size: 0.76rem;
+  color: var(--text-soft);
+}
+
+.technical-note-children li::marker {
+  color: var(--brand);
+  font-weight: 600;
 }
 
 .timeline {
@@ -436,6 +453,10 @@ summary {
   .timeline li {
     grid-template-columns: 1fr;
     gap: 0.25rem;
+  }
+
+  .technical-note-meta {
+    align-items: flex-start;
   }
 
   .hero-main,

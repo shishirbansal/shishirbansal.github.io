@@ -1,0 +1,143 @@
+.page-shell {
+  padding: clamp(2rem, 5vw, 3.5rem) 0 2rem;
+}
+
+.page-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-bottom: 1rem;
+  color: var(--text-soft);
+  text-decoration: none;
+  font-size: 0.84rem;
+  font-weight: 600;
+}
+
+.page-back:hover {
+  color: var(--text);
+}
+
+.page-hero {
+  padding: clamp(1.2rem, 2.8vw, 2rem);
+  display: grid;
+  gap: 0.8rem;
+}
+
+.page-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.page-meta time,
+.page-meta a {
+  font-size: 0.78rem;
+  color: var(--text-soft);
+}
+
+.page-meta a {
+  text-decoration: none;
+}
+
+.page-meta a:hover {
+  color: var(--brand);
+}
+
+.page-hero h1 {
+  margin: 0;
+  font-family: "Source Serif 4", Georgia, serif;
+  font-size: clamp(1.9rem, 5vw, 3rem);
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+}
+
+.page-hero p {
+  margin: 0;
+  color: var(--text-soft);
+  max-width: 64ch;
+}
+
+.note-layout {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.note-block {
+  padding: 1rem;
+}
+
+.note-block h2 {
+  font-size: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.curriculum-grid {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.curriculum-week {
+  border: 1px solid var(--line);
+  border-radius: 0.85rem;
+  background: var(--surface-alt);
+  padding: 0.9rem;
+}
+
+.curriculum-week h3 {
+  margin: 0 0 0.65rem;
+  font-size: 0.98rem;
+  letter-spacing: -0.01em;
+}
+
+.tracker-list,
+.tips-list,
+.milestone-list {
+  margin: 0;
+  padding-left: 1.2rem;
+  display: grid;
+  gap: 0.55rem;
+}
+
+.tracker-list li,
+.tips-list li,
+.milestone-list li {
+  padding-left: 0.2rem;
+}
+
+.tracker-label {
+  font-weight: 600;
+}
+
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.8rem;
+}
+
+.summary-stat {
+  border: 1px solid var(--line);
+  border-radius: 0.85rem;
+  background: var(--surface-alt);
+  padding: 0.9rem;
+}
+
+.summary-stat .k {
+  font-size: 0.72rem;
+  color: var(--text-soft);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.summary-stat .v {
+  margin-top: 0.25rem;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+@media (max-width: 700px) {
+  .summary-grid {
+    grid-template-columns: 1fr;
+  }
+}

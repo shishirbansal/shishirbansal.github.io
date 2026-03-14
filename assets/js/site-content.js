@@ -63,7 +63,11 @@ export const technicalNotes = [
     parent: "Salesforce Technical Architect",
     createdAt: "2026-03-14T14:30:00+05:30",
     children: [
-      "Sharing and Visibility"
+      {
+        title: "Sharing and Visibility",
+        href: "technical-notes/sharing-and-visibility.html",
+        updatedAt: "2026-03-14T20:15:00+05:30"
+      }
     ]
   }
 ];

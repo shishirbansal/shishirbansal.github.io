@@ -91,7 +91,12 @@ const renderTechnicalNotes = () => {
       </div>
       <h3>${parent}</h3>
       <ol class="technical-note-children">
-        ${children.map((child) => `<li>${child}</li>`).join("")}
+        ${children.map((child) => `
+          <li>
+            <a class="technical-note-link" href="${child.href}" target="_blank" rel="noopener noreferrer">${child.title}</a>
+            <time datetime="${child.updatedAt}">${formatTimestamp(child.updatedAt)}</time>
+          </li>
+        `).join("")}
       </ol>
     </article>
   `).join("");
