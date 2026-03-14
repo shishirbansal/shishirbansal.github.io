@@ -2,7 +2,8 @@ import {
   currentFocus,
   dailyLogEntries,
   notes,
-  siteHighlights
+  siteHighlights,
+  technicalNotes
 } from "./site-content.js";
 
 const renderSiteHighlights = () => {
@@ -66,8 +67,39 @@ const renderCurrentFocus = () => {
   `;
 };
 
+const formatTimestamp = (dateValue) => {
+  const timestamp = new Date(dateValue);
+
+  return new Intl.DateTimeFormat("en-US", {
+    dateStyle: "medium",
+    timeStyle: "short"
+  }).format(timestamp);
+};
+
+const renderTechnicalNotes = () => {
+  const technicalNotesList = document.getElementById("technicalNotesList");
+
+  if (!technicalNotesList) {
+    return;
+  }
+
+  technicalNotesList.innerHTML = technicalNotes.map(({ children, createdAt, parent }) => `
+    <article class="technical-note">
+      <div class="technical-note-meta">
+        <span class="tag">Technical Note</span>
+        <time datetime="${createdAt}">${formatTimestamp(createdAt)}</time>
+      </div>
+      <h3>${parent}</h3>
+      <ol class="technical-note-children">
+        ${children.map((child) => `<li>${child}</li>`).join("")}
+      </ol>
+    </article>
+  `).join("");
+};
+
 renderSiteHighlights();
 renderNotes();
+renderTechnicalNotes();
 renderDailyLog();
 renderCurrentFocus();
 

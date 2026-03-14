@@ -58,6 +58,16 @@ export const dailyLogEntries = [
   }
 ];
 
+export const technicalNotes = [
+  {
+    parent: "Salesforce Technical Architect",
+    createdAt: "2026-03-14T14:30:00+05:30",
+    children: [
+      "Sharing and Visibility"
+    ]
+  }
+];
+
 export const currentFocus = {
   summary: "Building this site as a durable public notebook",
   text: "The goal is to publish useful observations quickly, with enough structure to revisit and improve them later."
