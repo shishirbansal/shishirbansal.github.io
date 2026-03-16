@@ -205,6 +205,145 @@
   white-space: pre;
 }
 
+.array-hero {
+  background:
+    radial-gradient(circle at 0% 0%, color-mix(in oklab, var(--brand) 25%, transparent) 0%, transparent 45%),
+    radial-gradient(circle at 100% 100%, color-mix(in oklab, #ffb347 22%, transparent) 0%, transparent 40%),
+    linear-gradient(130deg, color-mix(in oklab, var(--surface) 85%, white 15%), var(--surface));
+}
+
+.array-method-section + .array-method-section {
+  margin-top: 1.2rem;
+}
+
+.array-method-section-head h3 {
+  margin: 0 0 0.7rem;
+  font-size: 1.02rem;
+}
+
+.array-method-grid {
+  display: grid;
+  gap: 0.85rem;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.array-method-card {
+  border: 1px solid var(--line);
+  border-radius: 0.95rem;
+  padding: 0.85rem;
+  background: color-mix(in oklab, var(--surface-alt) 88%, white 12%);
+  display: grid;
+  gap: 0.65rem;
+}
+
+.array-method-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.array-method-top h3 {
+  margin: 0;
+  font-size: 0.97rem;
+}
+
+.mutate-badge {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  border-radius: 999px;
+  padding: 0.24rem 0.52rem;
+  font-weight: 700;
+}
+
+.mutate-badge.mutates {
+  background: color-mix(in oklab, #ef4444 24%, transparent);
+  color: color-mix(in oklab, #ef4444 78%, var(--text));
+}
+
+.mutate-badge.safe {
+  background: color-mix(in oklab, #22c55e 20%, transparent);
+  color: color-mix(in oklab, #16a34a 80%, var(--text));
+}
+
+.array-method-purpose {
+  margin: 0;
+  color: var(--text-soft);
+  font-size: 0.9rem;
+}
+
+.method-facts {
+  margin: 0;
+  display: grid;
+  gap: 0.48rem;
+}
+
+.method-facts dt {
+  font-size: 0.68rem;
+  color: var(--text-soft);
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  margin-bottom: 0.15rem;
+}
+
+.method-facts dd {
+  margin: 0;
+  font-size: 0.86rem;
+}
+
+.method-facts code {
+  font-size: 0.8rem;
+}
+
+.method-examples {
+  border-top: 1px dashed var(--line);
+  padding-top: 0.55rem;
+}
+
+.method-examples summary {
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.84rem;
+}
+
+.method-example h4 {
+  margin: 0.6rem 0 0.35rem;
+  font-size: 0.8rem;
+  color: var(--text-soft);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.method-example pre {
+  margin: 0;
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: 0.6rem;
+  background: color-mix(in oklab, var(--bg) 72%, black 28%);
+  padding: 0.65rem;
+}
+
+.method-example code {
+  font-size: 0.77rem;
+  line-height: 1.45;
+}
+
+.revision-chip-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.revision-chip {
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.34rem 0.62rem;
+  background: color-mix(in oklab, var(--surface-alt) 86%, white 14%);
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
 @media (max-width: 700px) {
   .summary-grid {
     grid-template-columns: 1fr;

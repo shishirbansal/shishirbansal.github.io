@@ -86,9 +86,9 @@ export const technicalNotes = [
     createdAt: "2026-03-16T10:50:00+05:30",
     children: [
       {
-        title: "JavaScript Complete Methods Study Guide",
+        title: "JavaScript Array Methods Study Guide",
         href: "technical-notes/javascript-study-guides.html",
-        updatedAt: "2026-03-16T10:50:00+05:30"
+        updatedAt: "2026-03-16T11:10:00+05:30"
       }
     ]
   }
