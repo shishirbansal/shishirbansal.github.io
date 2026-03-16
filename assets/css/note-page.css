@@ -139,6 +139,7 @@
 
 .table-shell {
   overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
   border: 1px solid var(--line);
   border-radius: 0.85rem;
 }
@@ -146,7 +147,7 @@
 .command-table {
   width: 100%;
   border-collapse: collapse;
-  min-width: 720px;
+  min-width: 640px;
 }
 
 .command-table th,
@@ -223,14 +224,14 @@
 
 .array-method-grid {
   display: grid;
-  gap: 0.85rem;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 0.9rem;
+  grid-template-columns: 1fr;
 }
 
 .array-method-card {
   border: 1px solid var(--line);
   border-radius: 0.95rem;
-  padding: 0.85rem;
+  padding: 1rem;
   background: color-mix(in oklab, var(--surface-alt) 88%, white 12%);
   display: grid;
   gap: 0.65rem;
@@ -318,6 +319,7 @@
 .method-example pre {
   margin: 0;
   overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
   border: 1px solid var(--line);
   border-radius: 0.6rem;
   background: color-mix(in oklab, var(--bg) 72%, black 28%);
@@ -327,6 +329,8 @@
 .method-example code {
   font-size: 0.77rem;
   line-height: 1.45;
+  white-space: pre;
+  tab-size: 2;
 }
 
 .revision-chip-wrap {
@@ -347,5 +351,18 @@
 @media (max-width: 700px) {
   .summary-grid {
     grid-template-columns: 1fr;
+  }
+
+  .array-method-card {
+    padding: 0.85rem;
+  }
+
+  .array-method-top {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .command-table {
+    min-width: 560px;
   }
 }
