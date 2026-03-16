@@ -69,6 +69,17 @@ export const technicalNotes = [
         updatedAt: "2026-03-14T20:15:00+05:30"
       }
     ]
+  },
+  {
+    parent: "Codex Comands",
+    createdAt: "2026-03-16T10:20:00+05:30",
+    children: [
+      {
+        title: "Codex Slash Commands Reference",
+        href: "technical-notes/codex-comands.html",
+        updatedAt: "2026-03-16T10:20:00+05:30"
+      }
+    ]
   }
 ];
 
