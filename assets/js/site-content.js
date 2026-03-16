@@ -80,6 +80,17 @@ export const technicalNotes = [
         updatedAt: "2026-03-16T10:20:00+05:30"
       }
     ]
+  },
+  {
+    parent: "Javascript Study Guides",
+    createdAt: "2026-03-16T10:50:00+05:30",
+    children: [
+      {
+        title: "JavaScript Complete Methods Study Guide",
+        href: "technical-notes/javascript-study-guides.html",
+        updatedAt: "2026-03-16T10:50:00+05:30"
+      }
+    ]
   }
 ];
 
