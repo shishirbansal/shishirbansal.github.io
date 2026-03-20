@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Git Config - Quiet Build</title>
-  <meta name="description" content="Git config setup guide: install Git, verify installation, and configure username/email at local, global, and system levels." />
+  <meta name="description" content="Deep Git config guide: setup identity, understand precedence, secure credentials, add useful defaults, and troubleshoot common errors." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500&display=swap" rel="stylesheet" />
@@ -33,8 +33,9 @@
       <div class="page-meta"><span class="tag">Git</span></div>
       <h1>Git Config</h1>
       <p>
-        Learn how to install Git, verify it, and configure your commit identity correctly. This section explains local,
-        global, and system configuration scope so your commits are attributed properly across projects.
+        Learn how to configure Git as a reliable daily tool, not just set your name and email once. This guide covers
+        config scope precedence, practical defaults, credential storage, and troubleshooting so your commits are
+        consistent across personal, work, and open-source repositories.
       </p>
     </section>
 
@@ -50,13 +51,13 @@
           <li>Verify installation with:</li>
         </ul>
         <pre><code>git --version</code></pre>
-        <p class="muted section-note">If installed correctly, the command prints your Git version.</p>
+        <p class="muted section-note">If installed correctly, the command prints your Git version (example: <code>git version 2.48.1</code>).</p>
       </article>
 
       <article class="card note-block">
         <div class="section-head">
-          <h2>The <code>git config</code> Command</h2>
-          <p class="muted">Configuration levels and behavior</p>
+          <h2>How <code>git config</code> Works</h2>
+          <p class="muted">Precedence and where values come from</p>
         </div>
         <div class="table-shell">
           <table class="command-table">
@@ -86,41 +87,160 @@
             </tbody>
           </table>
         </div>
+        <p>When the same key exists at multiple levels, Git uses the most specific one:</p>
+        <pre><code>local repository value &gt; global user value &gt; system value</code></pre>
+        <p>See every active key with file origin:</p>
+        <pre><code>git config --list --show-origin --show-scope</code></pre>
       </article>
 
       <article class="card note-block">
         <div class="section-head">
-          <h2>Set Username and Email</h2>
-          <p class="muted">Updated example identity values</p>
+          <h2>First-Time Baseline Setup</h2>
+          <p class="muted">Strong defaults for most developers</p>
         </div>
-        <p>Set global identity (recommended baseline):</p>
-        <pre><code>git config --global user.email "shishir.bansal@example.com"
-git config --global user.name "Shishir Bansal"</code></pre>
-        <p>Verify your configured values:</p>
+        <p>Set global identity and base behavior once per machine:</p>
+        <pre><code>git config --global user.name "Shishir Bansal"
+git config --global user.email "shishir.bansal@example.com"
+git config --global init.defaultBranch main
+git config --global core.editor "code --wait"
+git config --global pull.rebase false</code></pre>
+        <p>Verify all important baseline values:</p>
         <pre><code>git config user.email
 git config user.name</code></pre>
+        <pre><code>git config init.defaultBranch
+git config core.editor
+git config pull.rebase</code></pre>
+      </article>
+
+      <article class="card note-block">
+        <div class="section-head">
+          <h2>Identity Strategy</h2>
+          <p class="muted">Personal, company, and privacy-safe options</p>
+        </div>
+        <ul class="tips-list">
+          <li>Use your real name so commit history stays readable for teams.</li>
+          <li>Use an email tied to the account where you push code, especially on GitHub.</li>
+          <li>For public repos, use a no-reply address if you do not want to expose personal email.</li>
+          <li>Use local overrides for client or company repos that require a different identity.</li>
+        </ul>
       </article>
 
       <article class="card note-block">
         <div class="section-head">
           <h2>Local Override Example</h2>
-          <p class="muted">Use different identity for one repository</p>
+          <p class="muted">One repository, different author profile</p>
         </div>
         <pre><code>git config --local user.email "work.profile@example.com"
 git config --local user.name "Shishir Bansal (Work)"</code></pre>
-        <p class="muted section-note">Local values override global values only inside that repository.</p>
+        <p>Confirm exactly what this repository will use:</p>
+        <pre><code>git config --local --list
+git config --show-origin user.email
+git config --show-origin user.name</code></pre>
+        <p class="muted section-note">Local values override global values only in the current repository.</p>
+      </article>
+
+      <article class="card note-block">
+        <div class="section-head">
+          <h2>Credential Setup</h2>
+          <p class="muted">Avoid typing tokens repeatedly</p>
+        </div>
+        <p>Configure a credential helper so Git stores authentication securely:</p>
+        <div class="table-shell">
+          <table class="command-table">
+            <thead>
+              <tr>
+                <th>Platform</th>
+                <th>Recommended helper</th>
+                <th>Command</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Windows</td>
+                <td>Git Credential Manager</td>
+                <td><code>git config --global credential.helper manager-core</code></td>
+              </tr>
+              <tr>
+                <td>macOS</td>
+                <td>Keychain</td>
+                <td><code>git config --global credential.helper osxkeychain</code></td>
+              </tr>
+              <tr>
+                <td>Linux</td>
+                <td>Credential cache (short-term)</td>
+                <td><code>git config --global credential.helper cache</code></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="muted section-note">If your organization standardizes on Git Credential Manager, follow that policy across all platforms.</p>
+      </article>
+
+      <article class="card note-block">
+        <div class="section-head">
+          <h2>Quality-of-Life Defaults</h2>
+          <p class="muted">Small settings that improve daily workflow</p>
+        </div>
+        <pre><code>git config --global fetch.prune true
+git config --global rebase.autoStash true
+git config --global core.autocrlf input
+git config --global alias.st status
+git config --global alias.lg "log --oneline --graph --decorate --all"</code></pre>
+        <ul class="tips-list">
+          <li><code>fetch.prune</code> removes deleted remote-tracking branches when you fetch.</li>
+          <li><code>rebase.autoStash</code> helps when rebasing with uncommitted working changes.</li>
+          <li><code>core.autocrlf input</code> avoids accidental line-ending noise on macOS/Linux.</li>
+          <li>Aliases reduce repetitive typing for common commands.</li>
+        </ul>
+      </article>
+
+      <article class="card note-block">
+        <div class="section-head">
+          <h2>Troubleshooting</h2>
+          <p class="muted">Common config issues and quick fixes</p>
+        </div>
+        <div class="table-shell">
+          <table class="command-table">
+            <thead>
+              <tr>
+                <th>Symptom</th>
+                <th>Command to diagnose/fix</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>Author identity unknown</code></td>
+                <td><code>git config --global user.name "Your Name" &amp;&amp; git config --global user.email "you@example.com"</code></td>
+              </tr>
+              <tr>
+                <td>Wrong email on commits</td>
+                <td><code>git config --show-origin user.email</code></td>
+              </tr>
+              <tr>
+                <td>Unexpected merge/rebase behavior</td>
+                <td><code>git config --show-origin pull.rebase</code></td>
+              </tr>
+              <tr>
+                <td>Credential prompts on every push</td>
+                <td><code>git config --global credential.helper</code></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </article>
 
       <article class="card note-block">
         <div class="section-head">
           <h2>Quick Checklist</h2>
-          <p class="muted">Before starting a new repo</p>
+          <p class="muted">Before committing in a new environment</p>
         </div>
         <ul class="tips-list">
           <li>Git is installed and verified with <code>git --version</code>.</li>
           <li>Global <code>user.name</code> and <code>user.email</code> are configured.</li>
+          <li>Your branch and pull defaults match your team workflow.</li>
+          <li>Credential helper is configured for your operating system.</li>
           <li>Any project requiring different identity has local overrides.</li>
-          <li>You can read your config values successfully from terminal.</li>
+          <li>You can inspect config precedence with <code>--show-origin</code>.</li>
         </ul>
       </article>
     </section>

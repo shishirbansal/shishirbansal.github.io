@@ -119,7 +119,7 @@ export const technicalNotes = [
       {
         title: "Git Config",
         href: "technical-notes/git-config.html",
-        updatedAt: "2026-03-20T22:45:00+05:30"
+        updatedAt: "2026-03-20T23:55:00+05:30"
       },
       {
         title: "Git Branch",
