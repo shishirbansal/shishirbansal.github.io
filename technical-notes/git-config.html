@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Git Config - Quiet Build</title>
-  <meta name="description" content="Git config setup guide." />
+  <meta name="description" content="Git config setup guide: install Git, verify installation, and configure username/email at local, global, and system levels." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500&display=swap" rel="stylesheet" />
@@ -13,16 +13,121 @@
   <script src="../assets/js/theme-init.js"></script>
 </head>
 <body>
-  <div class="topbar"><div class="wrap"><nav><a class="brand" href="../index.html"><span class="dot"></span>Quiet Build</a><div class="menu"><a href="../index.html#technical-notes">Technical Notes</a><a href="../index.html#explore">Explore</a><button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">Theme</button></div></nav></div></div>
+  <div class="topbar">
+    <div class="wrap">
+      <nav>
+        <a class="brand" href="../index.html"><span class="dot"></span>Quiet Build</a>
+        <div class="menu">
+          <a href="../index.html#technical-notes">Technical Notes</a>
+          <a href="../index.html#explore">Explore</a>
+          <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">Theme</button>
+        </div>
+      </nav>
+    </div>
+  </div>
+
   <main class="wrap page-shell">
     <a class="page-back" href="../index.html#technical-notes">← Back to technical notes</a>
-    <section class="card page-hero git-hero"><div class="page-meta"><span class="tag">Git</span></div><h1>Git Config</h1><p>Configure identity, defaults, and aliases once to avoid repeated mistakes.</p></section>
-    <section class="note-layout">
-      <article class="card note-block"><div class="section-head"><h2>Must-Have Setup</h2><p class="muted">Global configuration</p></div><div class="table-shell"><table class="command-table"><thead><tr><th>Purpose</th><th>Command</th></tr></thead><tbody><tr><td>Name</td><td><code>git config --global user.name "Your Name"</code></td></tr><tr><td>Email</td><td><code>git config --global user.email "you@example.com"</code></td></tr><tr><td>Default branch</td><td><code>git config --global init.defaultBranch main</code></td></tr><tr><td>Rebase on pull</td><td><code>git config --global pull.rebase true</code></td></tr></tbody></table></div></article>
-      <article class="card note-block"><div class="section-head"><h2>Useful Aliases</h2><p class="muted">Faster workflow</p></div><ul class="tips-list"><li><code>git config --global alias.st status</code></li><li><code>git config --global alias.lg "log --oneline --graph --decorate"</code></li><li><code>git config --global alias.co switch</code></li><li><code>git config --global alias.br branch</code></li></ul></article>
+
+    <section class="card page-hero git-hero">
+      <div class="page-meta"><span class="tag">Git</span></div>
+      <h1>Git Config</h1>
+      <p>
+        Learn how to install Git, verify it, and configure your commit identity correctly. This section explains local,
+        global, and system configuration scope so your commits are attributed properly across projects.
+      </p>
     </section>
+
+    <section class="note-layout">
+      <article class="card note-block">
+        <div class="section-head">
+          <h2>Installing Git</h2>
+          <p class="muted">Windows, macOS, and Linux</p>
+        </div>
+        <ul class="tips-list">
+          <li>Install Git from the official installer for your operating system.</li>
+          <li>After installation, use your terminal to run Git commands locally.</li>
+          <li>Verify installation with:</li>
+        </ul>
+        <pre><code>git --version</code></pre>
+        <p class="muted section-note">If installed correctly, the command prints your Git version.</p>
+      </article>
+
+      <article class="card note-block">
+        <div class="section-head">
+          <h2>The <code>git config</code> Command</h2>
+          <p class="muted">Configuration levels and behavior</p>
+        </div>
+        <div class="table-shell">
+          <table class="command-table">
+            <thead>
+              <tr>
+                <th>Level</th>
+                <th>Scope</th>
+                <th>When to use</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>--local</code></td>
+                <td>Current repository only</td>
+                <td>Project-specific identity or settings</td>
+              </tr>
+              <tr>
+                <td><code>--global</code></td>
+                <td>Current user on this machine</td>
+                <td>Default identity for all your repositories</td>
+              </tr>
+              <tr>
+                <td><code>--system</code></td>
+                <td>All users on the machine</td>
+                <td>Machine-wide policy (usually admin-managed)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </article>
+
+      <article class="card note-block">
+        <div class="section-head">
+          <h2>Set Username and Email</h2>
+          <p class="muted">Updated example identity values</p>
+        </div>
+        <p>Set global identity (recommended baseline):</p>
+        <pre><code>git config --global user.email "shishir.bansal@example.com"
+git config --global user.name "Shishir Bansal"</code></pre>
+        <p>Verify your configured values:</p>
+        <pre><code>git config user.email
+git config user.name</code></pre>
+      </article>
+
+      <article class="card note-block">
+        <div class="section-head">
+          <h2>Local Override Example</h2>
+          <p class="muted">Use different identity for one repository</p>
+        </div>
+        <pre><code>git config --local user.email "work.profile@example.com"
+git config --local user.name "Shishir Bansal (Work)"</code></pre>
+        <p class="muted section-note">Local values override global values only inside that repository.</p>
+      </article>
+
+      <article class="card note-block">
+        <div class="section-head">
+          <h2>Quick Checklist</h2>
+          <p class="muted">Before starting a new repo</p>
+        </div>
+        <ul class="tips-list">
+          <li>Git is installed and verified with <code>git --version</code>.</li>
+          <li>Global <code>user.name</code> and <code>user.email</code> are configured.</li>
+          <li>Any project requiring different identity has local overrides.</li>
+          <li>You can read your config values successfully from terminal.</li>
+        </ul>
+      </article>
+    </section>
+
     <p class="footer">© 2026 Quiet Build — written quietly, shared intentionally.</p>
   </main>
+
   <script type="module" src="../assets/js/main.js"></script>
 </body>
 </html>
