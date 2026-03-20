@@ -94,6 +94,11 @@ export const technicalNotes = [
         title: "JavaScript String Methods Study Guide",
         href: "technical-notes/javascript-string-methods-study-guide.html",
         updatedAt: "2026-03-17T11:30:00+05:30"
+      },
+      {
+        title: "JavaScript Object Methods Study Guide",
+        href: "technical-notes/javascript-object-methods-study-guide.html",
+        updatedAt: "2026-03-20T16:50:00+05:30"
       }
     ]
   }
