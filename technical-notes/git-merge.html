@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Git Merge - Quiet Build</title>
+  <meta name="description" content="Git merge workflows and conflict handling." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+  <link rel="stylesheet" href="../assets/css/note-page.css" />
+  <script src="../assets/js/theme-init.js"></script>
+</head>
+<body>
+  <div class="topbar"><div class="wrap"><nav><a class="brand" href="../index.html"><span class="dot"></span>Quiet Build</a><div class="menu"><a href="../index.html#technical-notes">Technical Notes</a><a href="../index.html#explore">Explore</a><button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">Theme</button></div></nav></div></div>
+  <main class="wrap page-shell">
+    <a class="page-back" href="../index.html#technical-notes">← Back to technical notes</a>
+    <section class="card page-hero git-hero"><div class="page-meta"><span class="tag">Git</span></div><h1>Git Merge</h1><p>Combine branch history safely and resolve conflicts cleanly.</p></section>
+    <section class="note-layout">
+      <article class="card note-block"><div class="section-head"><h2>Merge Commands</h2><p class="muted">Most-used patterns</p></div><div class="table-shell"><table class="command-table"><thead><tr><th>Action</th><th>Command</th></tr></thead><tbody><tr><td>Merge feature into main</td><td><code>git merge feature/auth</code></td></tr><tr><td>Allow merge commit</td><td><code>git merge --no-ff feature/auth</code></td></tr><tr><td>Fast-forward only</td><td><code>git merge --ff-only feature/auth</code></td></tr><tr><td>Abort ongoing merge</td><td><code>git merge --abort</code></td></tr></tbody></table></div></article>
+      <article class="card note-block"><div class="section-head"><h2>Conflict Flow</h2><p class="muted">Repeatable steps</p></div><ul class="tips-list"><li>Run <code>git status</code> to identify conflicts.</li><li>Edit conflicted files and keep final expected code.</li><li>Stage resolved files with <code>git add</code>.</li><li>Complete with <code>git commit</code>.</li></ul></article>
+    </section>
+    <p class="footer">© 2026 Quiet Build — written quietly, shared intentionally.</p>
+  </main>
+  <script type="module" src="../assets/js/main.js"></script>
+</body>
+</html>

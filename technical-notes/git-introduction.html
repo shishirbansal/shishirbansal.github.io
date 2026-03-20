@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Introduction to Git - Quiet Build</title>
+  <meta name="description" content="Introduction to Git: core concepts and basic command flow." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+  <link rel="stylesheet" href="../assets/css/note-page.css" />
+  <script src="../assets/js/theme-init.js"></script>
+</head>
+<body>
+  <div class="topbar"><div class="wrap"><nav><a class="brand" href="../index.html"><span class="dot"></span>Quiet Build</a><div class="menu"><a href="../index.html#technical-notes">Technical Notes</a><a href="../index.html#explore">Explore</a><button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">Theme</button></div></nav></div></div>
+  <main class="wrap page-shell">
+    <a class="page-back" href="../index.html#technical-notes">← Back to technical notes</a>
+    <section class="card page-hero git-hero"><div class="page-meta"><span class="tag">Git</span></div><h1>Introduction to Git</h1><p>Git tracks snapshots of your code so you can collaborate, review changes, and recover safely.</p></section>
+    <section class="note-layout">
+      <article class="card note-block"><div class="section-head"><h2>Core Concepts</h2><p class="muted">Working tree, staging, commits, remote</p></div><ul class="tips-list"><li><code>Working directory</code>: your current files.</li><li><code>Staging area</code>: selected changes for next commit.</li><li><code>Commit</code>: saved snapshot with message.</li><li><code>Remote</code>: shared repository on GitHub.</li></ul></article>
+      <article class="card note-block"><div class="section-head"><h2>Starter Flow</h2><p class="muted">Daily command baseline</p></div><div class="table-shell"><table class="command-table"><thead><tr><th>Step</th><th>Command</th></tr></thead><tbody><tr><td>Check status</td><td><code>git status</code></td></tr><tr><td>Review changes</td><td><code>git diff</code></td></tr><tr><td>Stage file</td><td><code>git add &lt;file&gt;</code></td></tr><tr><td>Commit</td><td><code>git commit -m "message"</code></td></tr><tr><td>Push</td><td><code>git push origin main</code></td></tr></tbody></table></div></article>
+    </section>
+    <p class="footer">© 2026 Quiet Build — written quietly, shared intentionally.</p>
+  </main>
+  <script type="module" src="../assets/js/main.js"></script>
+</body>
+</html>

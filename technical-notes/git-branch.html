@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Git Branch - Quiet Build</title>
+  <meta name="description" content="Git branch commands and branch strategy." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+  <link rel="stylesheet" href="../assets/css/note-page.css" />
+  <script src="../assets/js/theme-init.js"></script>
+</head>
+<body>
+  <div class="topbar"><div class="wrap"><nav><a class="brand" href="../index.html"><span class="dot"></span>Quiet Build</a><div class="menu"><a href="../index.html#technical-notes">Technical Notes</a><a href="../index.html#explore">Explore</a><button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">Theme</button></div></nav></div></div>
+  <main class="wrap page-shell">
+    <a class="page-back" href="../index.html#technical-notes">← Back to technical notes</a>
+    <section class="card page-hero git-hero"><div class="page-meta"><span class="tag">Git</span></div><h1>Git Branch</h1><p>Use branches to isolate work and keep <code>main</code> stable.</p></section>
+    <section class="note-layout">
+      <article class="card note-block"><div class="section-head"><h2>Branch Commands</h2><p class="muted">Create, list, switch, rename, delete</p></div><div class="table-shell"><table class="command-table"><thead><tr><th>Action</th><th>Command</th></tr></thead><tbody><tr><td>List local branches</td><td><code>git branch</code></td></tr><tr><td>List all branches</td><td><code>git branch -a</code></td></tr><tr><td>Create branch</td><td><code>git branch feature/auth</code></td></tr><tr><td>Create and switch</td><td><code>git switch -c feature/auth</code></td></tr><tr><td>Rename current branch</td><td><code>git branch -m new-name</code></td></tr><tr><td>Delete merged branch</td><td><code>git branch -d feature/auth</code></td></tr></tbody></table></div></article>
+      <article class="card note-block"><div class="section-head"><h2>Best Practices</h2><p class="muted">Keep history easy to review</p></div><ul class="tips-list"><li>Use short-lived feature branches.</li><li>Rebase frequently on latest <code>main</code>.</li><li>Name branches by change intent, not ticket-only.</li></ul></article>
+    </section>
+    <p class="footer">© 2026 Quiet Build — written quietly, shared intentionally.</p>
+  </main>
+  <script type="module" src="../assets/js/main.js"></script>
+</body>
+</html>

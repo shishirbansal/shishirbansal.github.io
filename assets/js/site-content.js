@@ -106,6 +106,42 @@ export const technicalNotes = [
         updatedAt: "2026-03-20T16:50:00+05:30"
       }
     ]
+  },
+  {
+    parent: "Git",
+    createdAt: "2026-03-20T22:20:00+05:30",
+    children: [
+      {
+        title: "Introduction to Git",
+        href: "technical-notes/git-introduction.html",
+        updatedAt: "2026-03-20T22:45:00+05:30"
+      },
+      {
+        title: "Git Config",
+        href: "technical-notes/git-config.html",
+        updatedAt: "2026-03-20T22:45:00+05:30"
+      },
+      {
+        title: "Git Branch",
+        href: "technical-notes/git-branch.html",
+        updatedAt: "2026-03-20T22:45:00+05:30"
+      },
+      {
+        title: "Git Merge",
+        href: "technical-notes/git-merge.html",
+        updatedAt: "2026-03-20T22:45:00+05:30"
+      },
+      {
+        title: "GitHub",
+        href: "technical-notes/github.html",
+        updatedAt: "2026-03-20T22:45:00+05:30"
+      },
+      {
+        title: "Git Rebase",
+        href: "technical-notes/git-rebase.html",
+        updatedAt: "2026-03-20T22:45:00+05:30"
+      }
+    ]
   }
 ];
 
