@@ -67,6 +67,11 @@ export const technicalNotes = [
         title: "Sharing and Visibility",
         href: "technical-notes/sharing-and-visibility.html",
         updatedAt: "2026-03-14T20:15:00+05:30"
+      },
+      {
+        title: "Apex Code Cheat Sheet",
+        href: "technical-notes/apex-code-cheat-sheet.html",
+        updatedAt: "2026-03-20T21:55:00+05:30"
       }
     ]
   },

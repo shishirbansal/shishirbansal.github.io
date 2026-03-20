@@ -348,6 +348,50 @@
   font-weight: 600;
 }
 
+.apex-hero {
+  background:
+    radial-gradient(circle at 18% 12%, color-mix(in oklab, #f97316 28%, transparent) 0%, transparent 46%),
+    radial-gradient(circle at 82% 88%, color-mix(in oklab, #0ea5e9 24%, transparent) 0%, transparent 44%),
+    linear-gradient(140deg, color-mix(in oklab, var(--surface) 87%, white 13%), var(--surface));
+}
+
+.apex-principles-grid {
+  display: grid;
+  gap: 0.8rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.apex-principle-card,
+.apex-pill-card {
+  border: 1px solid var(--line);
+  border-radius: 0.9rem;
+  background: color-mix(in oklab, var(--surface-alt) 88%, white 12%);
+  padding: 0.95rem;
+}
+
+.apex-principle-card h3,
+.apex-pill-card h3 {
+  margin: 0 0 0.5rem;
+  font-size: 0.95rem;
+  letter-spacing: -0.01em;
+}
+
+.apex-principle-card p {
+  margin: 0;
+  color: var(--text-soft);
+  font-size: 0.88rem;
+  line-height: 1.55;
+}
+
+.apex-core-grid {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.apex-pill-card .table-shell {
+  margin-top: 0.5rem;
+}
+
 @media (max-width: 700px) {
   .summary-grid {
     grid-template-columns: 1fr;
