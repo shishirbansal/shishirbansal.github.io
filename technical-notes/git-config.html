@@ -231,6 +231,75 @@ git config --global alias.lg "log --oneline --graph --decorate --all"</code></pr
 
       <article class="card note-block">
         <div class="section-head">
+          <h2>Creating a New Project with Git</h2>
+          <p class="muted">Initialize a repository and start tracking files</p>
+        </div>
+        <p>
+          In this guide, you will learn how to set up a new project using Git for version control. You will create a
+          project directory, initialize a Git repository, add files for tracking, and check repository status. By the
+          end, you will understand essential commands like <code>git init</code>, <code>git add</code>, and
+          <code>git status</code>.
+        </p>
+
+        <h3>1. Create a New Project Directory</h3>
+        <p>Use the command below to create a new working directory for your project:</p>
+        <pre><code>mkdir test_project
+cd test_project</code></pre>
+        <p class="muted section-note">After this step, your working directory is <code>test_project</code> and it is empty.</p>
+
+        <h3>2. Create a File in the Project</h3>
+        <p>Create a simple text file and confirm it exists:</p>
+        <pre><code>touch file1.txt
+ls</code></pre>
+        <p class="muted section-note">You should see <code>file1.txt</code> in the output.</p>
+
+        <h3>3. Initialize a Git Repository</h3>
+        <pre><code>git init</code></pre>
+        <p><strong>What <code>git init</code> does:</strong></p>
+        <ul class="tips-list">
+          <li>Initializes an empty Git repository in your project.</li>
+          <li>Creates a hidden <code>.git</code> directory.</li>
+          <li>Stores Git metadata and version history in that <code>.git</code> folder.</li>
+        </ul>
+        <p class="muted section-note">Running <code>git init</code> does not automatically track files.</p>
+
+        <h3>4. Add Files to Git Tracking</h3>
+        <pre><code>git add .</code></pre>
+        <p><strong>What this command does:</strong></p>
+        <ul class="tips-list">
+          <li><code>.</code> means all files in the current directory.</li>
+          <li>Stages files so they are ready for commit.</li>
+          <li>Begins tracking the added files.</li>
+        </ul>
+
+        <h3>5. Check Repository Status</h3>
+        <pre><code>git status</code></pre>
+        <p><strong>Why <code>git status</code> matters:</strong></p>
+        <ul class="tips-list">
+          <li>Shows untracked files (not added yet).</li>
+          <li>Shows staged files (ready to commit).</li>
+          <li>Shows modified files (changed after last commit).</li>
+          <li>Displays information only and does not change your files.</li>
+        </ul>
+        <p><strong>Example workflow:</strong></p>
+        <ul class="tips-list">
+          <li>Before <code>git add .</code>, <code>file1.txt</code> appears as untracked.</li>
+          <li>After <code>git add .</code>, <code>file1.txt</code> appears as staged.</li>
+        </ul>
+
+        <h3>Conclusion</h3>
+        <ul class="tips-list">
+          <li>Created a new project directory.</li>
+          <li>Added a file to the project.</li>
+          <li>Initialized a Git repository.</li>
+          <li>Started tracking files with Git.</li>
+          <li>Checked repository status.</li>
+        </ul>
+        <p class="muted section-note">These steps are the foundation for using Git effectively in any project.</p>
+      </article>
+
+      <article class="card note-block">
+        <div class="section-head">
           <h2>Quick Checklist</h2>
           <p class="muted">Before committing in a new environment</p>
         </div>
