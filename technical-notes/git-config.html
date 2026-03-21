@@ -300,6 +300,88 @@ ls</code></pre>
 
       <article class="card note-block">
         <div class="section-head">
+          <h2>Git Commit</h2>
+          <p class="muted">Create your first commit and understand <code>HEAD</code></p>
+        </div>
+        <p>
+          In this section, you will learn how to create your first Git commit and understand how Git tracks your
+          project's history using commits. A commit is one of the most important concepts in Git, as it represents a
+          saved snapshot of your project at a specific point in time.
+        </p>
+
+        <h3>1. What Is a Commit?</h3>
+        <p>
+          A commit is a snapshot of your entire project at a given moment. Each commit records the state of all
+          tracked files, allowing you to revisit or restore previous versions whenever needed.
+        </p>
+        <p>Git maintains your project history as a sequence (or chain) of commits.</p>
+        <p><strong>Understanding <code>HEAD</code>:</strong></p>
+        <ul class="tips-list">
+          <li><code>HEAD</code> represents the most recent commit in your repository.</li>
+          <li>Every new commit becomes the new <code>HEAD</code>.</li>
+          <li>Each commit is linked to the previous one, forming a timeline of changes.</li>
+        </ul>
+        <p class="muted section-note">This structure allows Git to efficiently track and manage your project's evolution.</p>
+
+        <h3>2. The <code>git commit</code> Command</h3>
+        <p>Once you have staged your files using <code>git add</code>, you are ready to create a commit.</p>
+        <p><strong>Basic syntax:</strong></p>
+        <pre><code>git commit -m "Your commit message"</code></pre>
+        <p><strong>Explanation:</strong></p>
+        <ul class="tips-list">
+          <li><code>git commit</code> creates a new commit.</li>
+          <li><code>-m</code> stands for message.</li>
+          <li><code>"Your commit message"</code> is a short description of the changes made.</li>
+        </ul>
+
+        <h3>3. Importance of Commit Messages</h3>
+        <p>The commit message explains what changes were made in that snapshot.</p>
+        <p><strong>Best practices for commit messages:</strong></p>
+        <ul class="tips-list">
+          <li>Keep messages clear and descriptive.</li>
+          <li>Use meaningful wording.</li>
+          <li>Describe what changed and why.</li>
+        </ul>
+        <p><strong>Good examples:</strong></p>
+        <pre><code>initial commit
+added login functionality
+fixed bug in payment processing</code></pre>
+        <p><strong>Avoid:</strong></p>
+        <pre><code>commit 1
+update
+changes</code></pre>
+        <p class="muted section-note">Well-written commit messages make project history easier to understand and collaborate on.</p>
+
+        <h3>4. Creating Your First Commit</h3>
+        <p>Before creating a commit, check repository status:</p>
+        <pre><code>git status</code></pre>
+        <p>This ensures the correct files are staged and ready to be committed.</p>
+        <p>Now create your first commit:</p>
+        <pre><code>git commit -m "initial commit"</code></pre>
+
+        <h3>5. What Happens After a Commit?</h3>
+        <ul class="tips-list">
+          <li>All staged files become part of the commit.</li>
+          <li>Git saves a snapshot of your project.</li>
+          <li>The commit becomes the new <code>HEAD</code> of the repository.</li>
+          <li>Your working directory is now clean (no pending staged changes).</li>
+        </ul>
+        <p>To verify this, run:</p>
+        <pre><code>git status</code></pre>
+        <p class="muted section-note">You should see a message indicating that there is nothing left to commit.</p>
+
+        <h3>6. Summary</h3>
+        <ul class="tips-list">
+          <li>Created your first Git commit.</li>
+          <li>Captured a snapshot of your project.</li>
+          <li>Learned how Git tracks history using commits and <code>HEAD</code>.</li>
+          <li>Understood the importance of meaningful commit messages.</li>
+        </ul>
+        <p>You have now taken a major step in mastering Git version control.</p>
+      </article>
+
+      <article class="card note-block">
+        <div class="section-head">
           <h2>Quick Checklist</h2>
           <p class="muted">Before committing in a new environment</p>
         </div>
