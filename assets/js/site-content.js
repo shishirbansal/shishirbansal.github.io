@@ -96,6 +96,11 @@ export const technicalNotes = [
         updatedAt: "2026-03-16T11:10:00+05:30"
       },
       {
+        title: "JavaScript Important Concepts Study Guide",
+        href: "technical-notes/javascript-important-concepts-study-guide.html",
+        updatedAt: "2026-03-23T22:50:00+05:30"
+      },
+      {
         title: "JavaScript String Methods Study Guide",
         href: "technical-notes/javascript-string-methods-study-guide.html",
         updatedAt: "2026-03-17T11:30:00+05:30"
