@@ -1,5 +1,6 @@
 import {
   currentFocus,
+  dailyQuotes,
   dailyLogEntries,
   notes,
   siteHighlights,
@@ -67,6 +68,40 @@ const renderCurrentFocus = () => {
   `;
 };
 
+const getLocalDayKey = () => {
+  const now = new Date();
+  const year = now.getFullYear();
+  const month = String(now.getMonth() + 1).padStart(2, "0");
+  const day = String(now.getDate()).padStart(2, "0");
+
+  return `${year}-${month}-${day}`;
+};
+
+const getQuoteIndexForToday = (itemsCount) => {
+  const dayKey = getLocalDayKey();
+  let hash = 0;
+
+  for (let index = 0; index < dayKey.length; index += 1) {
+    hash = (hash * 31 + dayKey.charCodeAt(index)) % 2147483647;
+  }
+
+  return hash % itemsCount;
+};
+
+const renderDailyQuote = () => {
+  const quoteBanner = document.getElementById("quoteBanner");
+  const dailyQuoteText = document.getElementById("dailyQuoteText");
+  const dailyQuoteMeta = document.getElementById("dailyQuoteMeta");
+
+  if (!quoteBanner || !dailyQuoteText || !dailyQuoteMeta || !dailyQuotes.length) {
+    return;
+  }
+
+  const selectedQuote = dailyQuotes[getQuoteIndexForToday(dailyQuotes.length)];
+  dailyQuoteText.textContent = selectedQuote.text;
+  dailyQuoteMeta.textContent = selectedQuote.theme;
+};
+
 const formatTimestamp = (dateValue) => {
   const timestamp = new Date(dateValue);
 
@@ -103,6 +138,7 @@ const renderTechnicalNotes = () => {
 };
 
 renderSiteHighlights();
+renderDailyQuote();
 renderNotes();
 renderTechnicalNotes();
 renderDailyLog();

@@ -154,3 +154,26 @@ export const currentFocus = {
   summary: "Building this site as a durable public notebook",
   text: "The goal is to publish useful observations quickly, with enough structure to revisit and improve them later."
 };
+
+export const dailyQuotes = [
+  { text: "Code with patience. Life with curiosity.", theme: "Life + Tech" },
+  { text: "Tiny commits, big confidence.", theme: "Tech + Uplift" },
+  { text: "Progress is often quiet before it is visible.", theme: "Inspiring" },
+  { text: "Debug gently. People and systems both need context.", theme: "Life + Tech" },
+  { text: "A clean branch and a clear mind solve half the problem.", theme: "Tech" },
+  { text: "You do not need a perfect plan to take the next right step.", theme: "Inspiring" },
+  { text: "Rest is not a detour. It is part of sustained output.", theme: "Life" },
+  { text: "Ship the small improvement. Future you will thank you.", theme: "Tech + Uplift" },
+  { text: "Consistency beats intensity when the goal is long-term growth.", theme: "Life + Habits" },
+  { text: "Learn deeply, explain simply, repeat kindly.", theme: "Inspiring" },
+  { text: "Great systems are built one thoughtful decision at a time.", theme: "Tech + Inspiring" },
+  { text: "Some days you sprint, some days you sharpen the tools.", theme: "Light + Uplift" },
+  { text: "A calm mind writes cleaner code.", theme: "Life + Tech" },
+  { text: "Momentum starts with one focused hour.", theme: "Inspiring" },
+  { text: "The best refactor is the one that makes tomorrow easier.", theme: "Tech" },
+  { text: "Be kind to beginners, including your past self.", theme: "Life + Uplift" },
+  { text: "Slow is fine. Stuck is optional.", theme: "Light + Inspiring" },
+  { text: "Build things that work, then make them beautiful.", theme: "Tech + Craft" },
+  { text: "Clarity is a productivity tool.", theme: "Life + Tech" },
+  { text: "Every reliable system started as a rough draft.", theme: "Inspiring" }
+];

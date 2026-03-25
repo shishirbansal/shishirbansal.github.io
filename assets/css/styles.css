@@ -120,6 +120,36 @@ nav {
   align-items: stretch;
 }
 
+.quote-banner {
+  margin-top: 1.2rem;
+  padding: 0.9rem 1.05rem;
+  background:
+    linear-gradient(90deg, color-mix(in srgb, var(--brand) 10%, var(--surface)) 0%, var(--surface) 65%),
+    var(--surface);
+  border: 1px solid color-mix(in srgb, var(--brand) 28%, var(--line));
+}
+
+.quote-kicker {
+  margin: 0;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--text-soft);
+}
+
+.quote-banner blockquote {
+  margin: 0.35rem 0 0.28rem;
+  font-family: "Source Serif 4", Georgia, serif;
+  font-size: clamp(1.05rem, 2.2vw, 1.35rem);
+  line-height: 1.3;
+}
+
+.quote-meta {
+  margin: 0;
+  color: var(--text-soft);
+  font-size: 0.8rem;
+}
+
 .card {
   border: 1px solid var(--line);
   border-radius: 1rem;
@@ -463,5 +493,9 @@ summary {
   .hero-side,
   .section-card {
     padding: 0.9rem;
+  }
+
+  .quote-banner {
+    padding: 0.85rem 0.9rem;
   }
 }
