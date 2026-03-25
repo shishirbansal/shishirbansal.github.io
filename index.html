@@ -38,8 +38,18 @@
         <p class="quote-kicker">Daily Spark</p>
         <button class="quote-refresh-btn" id="refreshQuoteBtn" type="button" aria-label="Show another quote">Refresh quote</button>
       </div>
-      <blockquote id="dailyQuoteText">Small steps today shape strong systems tomorrow.</blockquote>
-      <p class="quote-meta" id="dailyQuoteMeta">Life + Tech + Uplift</p>
+      <div class="quote-marquee" role="presentation">
+        <div class="quote-track" id="dailyQuoteTrack">
+          <span class="quote-item" id="dailyQuoteTextA">Small steps today shape strong systems tomorrow.</span>
+          <span class="quote-sep" aria-hidden="true">•</span>
+          <span class="quote-item" id="dailyQuoteTextB">Small steps today shape strong systems tomorrow.</span>
+        </div>
+      </div>
+      <p class="quote-meta">
+        <span id="dailyQuoteMeta">Life + Tech + Uplift</span>
+        <span class="quote-meta-dot" aria-hidden="true">•</span>
+        <span id="dailyQuoteAuthor">Unknown</span>
+      </p>
     </section>
 
     <section class="hero">

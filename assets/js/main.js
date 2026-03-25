@@ -92,17 +92,26 @@ let currentQuoteIndex = 0;
 
 const renderDailyQuote = (quoteIndex = getQuoteIndexForToday(dailyQuotes.length)) => {
   const quoteBanner = document.getElementById("quoteBanner");
-  const dailyQuoteText = document.getElementById("dailyQuoteText");
+  const dailyQuoteTextA = document.getElementById("dailyQuoteTextA");
+  const dailyQuoteTextB = document.getElementById("dailyQuoteTextB");
   const dailyQuoteMeta = document.getElementById("dailyQuoteMeta");
+  const dailyQuoteAuthor = document.getElementById("dailyQuoteAuthor");
+  const dailyQuoteTrack = document.getElementById("dailyQuoteTrack");
 
-  if (!quoteBanner || !dailyQuoteText || !dailyQuoteMeta || !dailyQuotes.length) {
+  if (!quoteBanner || !dailyQuoteTextA || !dailyQuoteTextB || !dailyQuoteMeta || !dailyQuoteAuthor || !dailyQuoteTrack || !dailyQuotes.length) {
     return;
   }
 
   currentQuoteIndex = quoteIndex;
   const selectedQuote = dailyQuotes[currentQuoteIndex];
-  dailyQuoteText.textContent = selectedQuote.text;
+  dailyQuoteTextA.textContent = `"${selectedQuote.text}"`;
+  dailyQuoteTextB.textContent = `"${selectedQuote.text}"`;
   dailyQuoteMeta.textContent = selectedQuote.theme;
+  dailyQuoteAuthor.textContent = selectedQuote.author || "Unknown";
+
+  dailyQuoteTrack.classList.remove("marquee-animate");
+  void dailyQuoteTrack.offsetWidth;
+  dailyQuoteTrack.classList.add("marquee-animate");
 };
 
 const formatTimestamp = (dateValue) => {
