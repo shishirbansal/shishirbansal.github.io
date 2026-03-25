@@ -233,20 +233,53 @@ nav {
   z-index: 1;
 }
 
-.parallax-panel::before {
-  content: attr(data-parallax-text);
+.parallax-panel::before,
+.parallax-panel::after {
   position: absolute;
-  left: -0.6rem;
-  top: 0.4rem;
   z-index: 0;
-  font-family: "Source Serif 4", Georgia, serif;
-  font-size: clamp(1.2rem, 3vw, 2rem);
-  letter-spacing: 0.06em;
-  color: color-mix(in srgb, var(--text-soft) 22%, transparent);
   pointer-events: none;
   transform: translate3d(var(--parallax-x, 0px), var(--parallax-y, 0px), 0);
   transition: transform 0.14s linear;
   white-space: nowrap;
+}
+
+.parallax-main::before {
+  content: attr(data-parallax-text) " · " attr(data-parallax-text) " · " attr(data-parallax-text);
+  left: -0.6rem;
+  top: 0.4rem;
+  font-family: "Source Serif 4", Georgia, serif;
+  font-size: clamp(0.9rem, 1.7vw, 1.15rem);
+  letter-spacing: 0.06em;
+  color: color-mix(in srgb, var(--text-soft) 18%, transparent);
+}
+
+.parallax-main::after {
+  content: attr(data-parallax-text-secondary) " · " attr(data-parallax-text-secondary) " · " attr(data-parallax-text-secondary);
+  left: -0.2rem;
+  bottom: 0.45rem;
+  font-family: "Source Serif 4", Georgia, serif;
+  font-size: clamp(0.78rem, 1.4vw, 0.96rem);
+  letter-spacing: 0.08em;
+  color: color-mix(in srgb, var(--text-soft) 15%, transparent);
+}
+
+.parallax-side::before {
+  content: attr(data-parallax-text) " · " attr(data-parallax-text);
+  left: -0.35rem;
+  top: 0.35rem;
+  font-family: "Source Serif 4", Georgia, serif;
+  font-size: clamp(0.8rem, 1.4vw, 1rem);
+  letter-spacing: 0.08em;
+  color: color-mix(in srgb, var(--text-soft) 18%, transparent);
+}
+
+.parallax-side::after {
+  content: "✦  ◌  ✧  ~  ◌  ✦  ~  ✧  ◌  ✦  ~  ✧";
+  left: -0.2rem;
+  bottom: 0.4rem;
+  font-size: clamp(0.72rem, 1.2vw, 0.9rem);
+  letter-spacing: 0.22em;
+  color: color-mix(in srgb, var(--text-soft) 20%, transparent);
 }
 
 .hero-main {
@@ -595,9 +628,12 @@ summary {
     flex-wrap: wrap;
   }
 
-  .parallax-panel::before {
-    font-size: 1rem;
-    top: 0.3rem;
+  .parallax-main::before,
+  .parallax-main::after,
+  .parallax-side::before,
+  .parallax-side::after {
+    font-size: 0.74rem;
+    letter-spacing: 0.06em;
   }
 }
 
@@ -606,7 +642,8 @@ summary {
     animation: none;
   }
 
-  .parallax-panel::before {
+  .parallax-panel::before,
+  .parallax-panel::after {
     transform: none;
     transition: none;
   }
