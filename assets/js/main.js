@@ -88,7 +88,9 @@ const getQuoteIndexForToday = (itemsCount) => {
   return hash % itemsCount;
 };
 
-const renderDailyQuote = () => {
+let currentQuoteIndex = 0;
+
+const renderDailyQuote = (quoteIndex = getQuoteIndexForToday(dailyQuotes.length)) => {
   const quoteBanner = document.getElementById("quoteBanner");
   const dailyQuoteText = document.getElementById("dailyQuoteText");
   const dailyQuoteMeta = document.getElementById("dailyQuoteMeta");
@@ -97,7 +99,8 @@ const renderDailyQuote = () => {
     return;
   }
 
-  const selectedQuote = dailyQuotes[getQuoteIndexForToday(dailyQuotes.length)];
+  currentQuoteIndex = quoteIndex;
+  const selectedQuote = dailyQuotes[currentQuoteIndex];
   dailyQuoteText.textContent = selectedQuote.text;
   dailyQuoteMeta.textContent = selectedQuote.theme;
 };
@@ -143,6 +146,15 @@ renderNotes();
 renderTechnicalNotes();
 renderDailyLog();
 renderCurrentFocus();
+
+const refreshQuoteButton = document.getElementById("refreshQuoteBtn");
+
+if (refreshQuoteButton && dailyQuotes.length > 1) {
+  refreshQuoteButton.addEventListener("click", () => {
+    const nextQuoteIndex = (currentQuoteIndex + 1) % dailyQuotes.length;
+    renderDailyQuote(nextQuoteIndex);
+  });
+}
 
 const themeToggle = document.getElementById("themeToggle");
 

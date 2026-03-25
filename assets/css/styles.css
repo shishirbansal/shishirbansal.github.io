@@ -129,12 +129,35 @@ nav {
   border: 1px solid color-mix(in srgb, var(--brand) 28%, var(--line));
 }
 
+.quote-banner-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem;
+}
+
 .quote-kicker {
   margin: 0;
   font-size: 0.72rem;
   text-transform: uppercase;
   letter-spacing: 0.09em;
   color: var(--text-soft);
+}
+
+.quote-refresh-btn {
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--text-soft);
+  border-radius: 999px;
+  padding: 0.28rem 0.65rem;
+  font-size: 0.73rem;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.quote-refresh-btn:hover {
+  color: var(--text);
+  border-color: color-mix(in srgb, var(--brand) 32%, var(--line));
 }
 
 .quote-banner blockquote {
