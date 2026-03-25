@@ -149,12 +149,58 @@ const renderTechnicalNotes = () => {
   `).join("");
 };
 
+const setupHeroParallax = () => {
+  const panels = document.querySelectorAll(".parallax-panel");
+
+  if (!panels.length || window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    return;
+  }
+
+  let mouseOffsetX = 0;
+  let mouseOffsetY = 0;
+  let scrollOffsetY = 0;
+  let isTicking = false;
+
+  const applyParallax = () => {
+    panels.forEach((panel, index) => {
+      const direction = index % 2 === 0 ? 1 : -1;
+      const x = (mouseOffsetX * 10 * direction).toFixed(2);
+      const y = ((mouseOffsetY * 8 * direction) + (scrollOffsetY * (direction * 0.6))).toFixed(2);
+      panel.style.setProperty("--parallax-x", `${x}px`);
+      panel.style.setProperty("--parallax-y", `${y}px`);
+    });
+
+    isTicking = false;
+  };
+
+  const requestParallaxFrame = () => {
+    if (isTicking) {
+      return;
+    }
+
+    isTicking = true;
+    window.requestAnimationFrame(applyParallax);
+  };
+
+  window.addEventListener("mousemove", (event) => {
+    mouseOffsetX = (event.clientX / window.innerWidth) - 0.5;
+    mouseOffsetY = (event.clientY / window.innerHeight) - 0.5;
+    requestParallaxFrame();
+  }, { passive: true });
+
+  window.addEventListener("scroll", () => {
+    scrollOffsetY = Math.min(window.scrollY * 0.015, 12);
+    requestParallaxFrame();
+  }, { passive: true });
+};
+
 renderSiteHighlights();
 renderDailyQuote();
 renderNotes();
 renderTechnicalNotes();
 renderDailyLog();
 renderCurrentFocus();
+setupHeroParallax();
 
 const refreshQuoteButton = document.getElementById("refreshQuoteBtn");
 
