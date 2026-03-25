@@ -171,12 +171,18 @@ nav {
 .quote-track {
   display: inline-flex;
   align-items: center;
-  gap: 1rem;
+  gap: 3.5rem;
   min-width: max-content;
 }
 
 .quote-track.marquee-animate {
-  animation: quote-marquee 22s linear infinite;
+  animation: quote-marquee 30s linear infinite;
+}
+
+.quote-loop {
+  display: inline-flex;
+  align-items: center;
+  gap: 1.2rem;
 }
 
 .quote-item {

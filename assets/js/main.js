@@ -92,20 +92,20 @@ let currentQuoteIndex = 0;
 
 const renderDailyQuote = (quoteIndex = getQuoteIndexForToday(dailyQuotes.length)) => {
   const quoteBanner = document.getElementById("quoteBanner");
-  const dailyQuoteTextA = document.getElementById("dailyQuoteTextA");
-  const dailyQuoteTextB = document.getElementById("dailyQuoteTextB");
+  const dailyQuoteItems = document.querySelectorAll("[data-quote-item]");
   const dailyQuoteMeta = document.getElementById("dailyQuoteMeta");
   const dailyQuoteAuthor = document.getElementById("dailyQuoteAuthor");
   const dailyQuoteTrack = document.getElementById("dailyQuoteTrack");
 
-  if (!quoteBanner || !dailyQuoteTextA || !dailyQuoteTextB || !dailyQuoteMeta || !dailyQuoteAuthor || !dailyQuoteTrack || !dailyQuotes.length) {
+  if (!quoteBanner || !dailyQuoteItems.length || !dailyQuoteMeta || !dailyQuoteAuthor || !dailyQuoteTrack || !dailyQuotes.length) {
     return;
   }
 
   currentQuoteIndex = quoteIndex;
   const selectedQuote = dailyQuotes[currentQuoteIndex];
-  dailyQuoteTextA.textContent = `"${selectedQuote.text}"`;
-  dailyQuoteTextB.textContent = `"${selectedQuote.text}"`;
+  dailyQuoteItems.forEach((item) => {
+    item.textContent = `"${selectedQuote.text}"`;
+  });
   dailyQuoteMeta.textContent = selectedQuote.theme;
   dailyQuoteAuthor.textContent = selectedQuote.author || "Unknown";
 
