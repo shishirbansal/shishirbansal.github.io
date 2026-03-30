@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Security for Developers - Quiet Build</title>
+  <meta name="description" content="Salesforce Security for Developers quick reference covering sharing, CRUD/FLS checks, escaping, ESAPI helpers, custom settings, and crypto methods." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+  <link rel="stylesheet" href="../assets/css/note-page.css" />
+
+  <script src="../assets/js/theme-init.js"></script>
+</head>
+<body>
+  <div class="topbar">
+    <div class="wrap">
+      <nav>
+        <a class="brand" href="../index.html">
+          <span class="dot"></span>
+          Quiet Build
+        </a>
+        <div class="menu">
+          <a href="../index.html#technical-notes">Technical Notes</a>
+          <a href="../index.html#explore">Explore</a>
+          <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">Theme</button>
+        </div>
+      </nav>
+    </div>
+  </div>
+
+  <main class="wrap page-shell">
+    <a class="page-back" href="../index.html#technical-notes">← Back to technical notes</a>
+
+    <section class="card page-hero security-dev-hero">
+      <div id="securityDevelopersHero"></div>
+    </section>
+
+    <section class="note-layout">
+      <article class="card note-block">
+        <div class="section-head">
+          <h2>Execution Priorities</h2>
+          <p class="muted">What to enforce in every Apex/Visualforce flow</p>
+        </div>
+        <div id="securityDevelopersPriorities"></div>
+      </article>
+
+      <article class="card note-block">
+        <div class="section-head">
+          <h2>Sharing and Output Encoding</h2>
+          <p class="muted">Context control + escaping safeguards</p>
+        </div>
+        <div id="securityDevelopersAccess"></div>
+      </article>
+
+      <article class="card note-block">
+        <div class="section-head">
+          <h2>CRUD and FLS Checks</h2>
+          <p class="muted">Guard object-level and field-level access</p>
+        </div>
+        <div id="securityDevelopersCrudFls"></div>
+      </article>
+
+      <article class="card note-block">
+        <div class="section-head">
+          <h2>ESAPI and Access Control Helpers</h2>
+          <p class="muted">Centralized request-time security checks</p>
+        </div>
+        <div id="securityDevelopersEsapi"></div>
+      </article>
+
+      <article class="card note-block">
+        <div class="section-head">
+          <h2>Custom Settings and Crypto</h2>
+          <p class="muted">Protected config and cryptographic operations</p>
+        </div>
+        <div id="securityDevelopersRuntime"></div>
+      </article>
+    </section>
+
+    <p class="footer">© 2026 Quiet Build — written quietly, shared intentionally.</p>
+  </main>
+
+  <script type="module" src="../assets/js/security-for-developers.js"></script>
+  <script type="module" src="../assets/js/main.js"></script>
+</body>
+</html>

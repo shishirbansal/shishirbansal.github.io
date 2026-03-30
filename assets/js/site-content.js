@@ -77,6 +77,16 @@ export const technicalNotes = [
         title: "Object Relationship Types",
         href: "technical-notes/object-relationship-types.html",
         updatedAt: "2026-03-30T10:46:00+05:30"
+      },
+      {
+        title: "Security for Developers",
+        href: "technical-notes/security-for-developers.html",
+        updatedAt: "2026-03-30T10:55:00+05:30"
+      },
+      {
+        title: "Record Locking",
+        href: "technical-notes/record-locking.html",
+        updatedAt: "2026-03-30T10:56:00+05:30"
       }
     ]
   },
