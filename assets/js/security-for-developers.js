@@ -34,7 +34,6 @@ const renderSecurityForDevelopers = () => {
     <div class="page-meta">
       <span class="tag">${securityForDevelopersNote.parent}</span>
       <time datetime="${securityForDevelopersNote.createdAt}">${formatTimestamp(securityForDevelopersNote.createdAt)}</time>
-      <span class="muted">Sources: ${securityForDevelopersNote.sources.join(", ")}</span>
     </div>
     <h1>${securityForDevelopersNote.title}</h1>
     <p>${securityForDevelopersNote.intro}</p>

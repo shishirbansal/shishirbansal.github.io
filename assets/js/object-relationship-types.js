@@ -17,7 +17,6 @@ const renderObjectRelationshipTypes = () => {
     <div class="page-meta">
       <span class="tag">${objectRelationshipTypesNote.parent}</span>
       <time datetime="${objectRelationshipTypesNote.createdAt}">${formatTimestamp(objectRelationshipTypesNote.createdAt)}</time>
-      <span class="muted">Source: ${objectRelationshipTypesNote.source}</span>
     </div>
     <h1>${objectRelationshipTypesNote.title}</h1>
     <p>${objectRelationshipTypesNote.intro}</p>

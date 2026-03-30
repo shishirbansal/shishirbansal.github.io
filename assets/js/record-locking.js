@@ -47,7 +47,6 @@ const renderRecordLocking = () => {
     <div class="page-meta">
       <span class="tag">${recordLockingNote.parent}</span>
       <time datetime="${recordLockingNote.createdAt}">${formatTimestamp(recordLockingNote.createdAt)}</time>
-      <span class="muted">Sources: ${recordLockingNote.sources.join(", ")}</span>
     </div>
     <h1>${recordLockingNote.title}</h1>
     <p>${recordLockingNote.intro}</p>

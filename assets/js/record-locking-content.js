@@ -3,7 +3,6 @@ export const recordLockingNote = {
   parent: "Salesforce Technical Architect",
   createdAt: "2026-03-30T10:56:00+05:30",
   intro: "Salesforce uses record and group-table locks to maintain consistency in concurrent transactions. Most operations lock only one or a few rows, but contention rises quickly in high-volume updates to shared parent records, role/group structures, and share tables.",
-  sources: ["IMG_20260330_105628.jpg", "IMG_20260330_105638.jpg", "IMG_20260330_105651.jpg"],
   usageGuide: [
     "Review locking behavior per object and operation before finalizing a data model. Parent/related objects can lock even when you update only child records.",
     "Treat lookup relationships, roll-up summary fields, workflow field updates, and sharing recalculation as lock multipliers in large data volumes.",

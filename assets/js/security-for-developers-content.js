@@ -3,7 +3,6 @@ export const securityForDevelopersNote = {
   parent: "Salesforce Technical Architect",
   createdAt: "2026-03-30T10:55:00+05:30",
   intro: "This page consolidates your Salesforce Security for Developers cheatsheet screenshots into an implementation-first guide. It focuses on how to enforce sharing, object/field permissions, safe output encoding, and secure runtime operations.",
-  sources: ["IMG_20260330_105508.jpg", "IMG_20260330_105530.jpg"],
   priorities: [
     "Always validate access at three layers: record-level sharing, object-level CRUD, and field-level security.",
     "Always encode user-controlled output for the target context (HTML, JavaScript, URL, or mixed contexts).",

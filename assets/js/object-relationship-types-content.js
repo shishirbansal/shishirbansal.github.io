@@ -3,7 +3,6 @@ export const objectRelationshipTypesNote = {
   parent: "Salesforce Technical Architect",
   createdAt: "2026-03-30T10:46:00+05:30",
   intro: "This reference summarizes common Salesforce object relationship types and how they behave for ownership, security inheritance, and delete behavior.",
-  source: "IMG_20260330_104633.jpg",
   relationships: [
     {
       name: "Master-detail",

@@ -11,6 +11,11 @@ const renderList = (items) => `
   </ul>
 `;
 
+const escapeHtml = (value) => String(value)
+  .replaceAll("&", "&amp;")
+  .replaceAll("<", "&lt;")
+  .replaceAll(">", "&gt;");
+
 const renderApexCheatSheet = () => {
   const hero = document.getElementById("apexHero");
   const quickStart = document.getElementById("apexQuickStart");
@@ -29,7 +34,6 @@ const renderApexCheatSheet = () => {
     <div class="page-meta">
       <span class="tag">${apexCheatSheetNote.parent}</span>
       <time datetime="${apexCheatSheetNote.createdAt}">${formatTimestamp(apexCheatSheetNote.createdAt)}</time>
-      <a href="${apexCheatSheetNote.sourceHref}" target="_blank" rel="noopener noreferrer">${apexCheatSheetNote.sourceTitle}</a>
     </div>
     <h1>${apexCheatSheetNote.title}</h1>
     <p>${apexCheatSheetNote.intro}</p>
@@ -80,15 +84,51 @@ const renderApexCheatSheet = () => {
       </article>
 
       <article class="apex-pill-card">
-        <h3>Primitive Types</h3>
-        ${renderList(apexCheatSheetNote.coreBlocks.primitives)}
+        <h3>Primitive Types (Common)</h3>
+        <div class="table-shell">
+          <table class="command-table">
+            <thead>
+              <tr>
+                <th>Type</th>
+                <th>Description</th>
+                <th>Example</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${apexCheatSheetNote.coreBlocks.primitives.map((item) => `
+                <tr>
+                  <td><code>${item.type}</code></td>
+                  <td>${item.detail}</td>
+                  <td><code>${escapeHtml(item.example)}</code></td>
+                </tr>
+              `).join("")}
+            </tbody>
+          </table>
+        </div>
       </article>
 
       <article class="apex-pill-card">
         <h3>Collection Types</h3>
-        <ul class="tips-list">
-          ${apexCheatSheetNote.coreBlocks.collections.map((item) => `<li><code>${item.name}</code>: ${item.detail}</li>`).join("")}
-        </ul>
+        <div class="table-shell">
+          <table class="command-table">
+            <thead>
+              <tr>
+                <th>Type</th>
+                <th>Description</th>
+                <th>Example</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${apexCheatSheetNote.coreBlocks.collections.map((item) => `
+                <tr>
+                  <td><code>${escapeHtml(item.name)}</code></td>
+                  <td>${item.detail}</td>
+                  <td><code>${escapeHtml(item.example)}</code></td>
+                </tr>
+              `).join("")}
+            </tbody>
+          </table>
+        </div>
       </article>
     </div>
   `;
@@ -120,34 +160,37 @@ const renderApexCheatSheet = () => {
         <article class="example-card">
           <h3><code>${item.operation}</code></h3>
           <p class="muted">${item.when}</p>
-          <pre><code>${item.sample}</code></pre>
+          <pre><code>${escapeHtml(item.sample)}</code></pre>
         </article>
       `).join("")}
     </div>
   `;
 
   runtime.innerHTML = `
-    <div class="summary-grid">
-      <div class="summary-stat">
-        <div class="k">System</div>
-        <div class="v">${apexCheatSheetNote.runtimeUtilities.system.join(", ")}</div>
-      </div>
-      <div class="summary-stat">
-        <div class="k">Math</div>
-        <div class="v">${apexCheatSheetNote.runtimeUtilities.math.join(", ")}</div>
-      </div>
-      <div class="summary-stat">
-        <div class="k">Describe</div>
-        <div class="v">${apexCheatSheetNote.runtimeUtilities.describe.join(" ")}</div>
-      </div>
-      <div class="summary-stat">
-        <div class="k">Limits</div>
-        <div class="v">${apexCheatSheetNote.runtimeUtilities.limits.join(" ")}</div>
-      </div>
-      <div class="summary-stat">
-        <div class="k">UserInfo</div>
-        <div class="v">${apexCheatSheetNote.runtimeUtilities.userInfo.join(", ")}</div>
-      </div>
+    <div class="apex-core-grid">
+      ${apexCheatSheetNote.runtimeUtilities.standardClasses.map((item) => `
+        <article class="apex-pill-card">
+          <h3>${item.name}</h3>
+          <p class="muted">${item.methods.join(", ")}</p>
+        </article>
+      `).join("")}
+
+      <article class="apex-pill-card">
+        <h3>Describe APIs</h3>
+        <ul class="tips-list">
+          ${apexCheatSheetNote.runtimeUtilities.describeApis.map((item) => `<li><code>${item.api}</code>: ${item.use}</li>`).join("")}
+        </ul>
+      </article>
+
+      <article class="apex-pill-card">
+        <h3>Governor Monitoring</h3>
+        ${renderList(apexCheatSheetNote.runtimeUtilities.limits)}
+      </article>
+
+      <article class="apex-pill-card">
+        <h3>UserInfo Methods</h3>
+        <p class="muted">${apexCheatSheetNote.runtimeUtilities.userInfo.join(", ")}</p>
+      </article>
     </div>
   `;
 
@@ -158,6 +201,7 @@ const renderApexCheatSheet = () => {
           <tr>
             <th>Interface</th>
             <th>Core signature</th>
+            <th>When to use</th>
           </tr>
         </thead>
         <tbody>
@@ -165,6 +209,7 @@ const renderApexCheatSheet = () => {
             <tr>
               <td><code>${item.name}</code></td>
               <td><code>${item.signature}</code></td>
+              <td>${item.guidance}</td>
             </tr>
           `).join("")}
         </tbody>
