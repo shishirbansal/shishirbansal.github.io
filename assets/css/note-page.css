@@ -429,6 +429,30 @@
   gap: 0.8rem;
 }
 
+.object-relationship-hero {
+  background:
+    radial-gradient(circle at 10% 12%, color-mix(in oklab, #0284c7 22%, transparent) 0%, transparent 44%),
+    radial-gradient(circle at 85% 84%, color-mix(in oklab, #22c55e 18%, transparent) 0%, transparent 40%),
+    linear-gradient(142deg, color-mix(in oklab, var(--surface) 87%, white 13%), var(--surface));
+}
+
+.relationship-grid {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.relationship-card {
+  border: 1px solid var(--line);
+  border-radius: 0.9rem;
+  background: color-mix(in oklab, var(--surface-alt) 88%, white 12%);
+  padding: 0.95rem;
+}
+
+.relationship-card h3 {
+  margin: 0 0 0.6rem;
+  font-size: 0.97rem;
+}
+
 @media (max-width: 700px) {
   .summary-grid {
     grid-template-columns: 1fr;

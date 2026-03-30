@@ -72,6 +72,11 @@ export const technicalNotes = [
         title: "Apex Code Cheat Sheet",
         href: "technical-notes/apex-code-cheat-sheet.html",
         updatedAt: "2026-03-20T21:55:00+05:30"
+      },
+      {
+        title: "Object Relationship Types",
+        href: "technical-notes/object-relationship-types.html",
+        updatedAt: "2026-03-30T10:46:00+05:30"
       }
     ]
   },
