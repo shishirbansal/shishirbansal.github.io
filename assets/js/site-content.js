@@ -45,16 +45,70 @@ export const notes = [
 
 export const dailyLogEntries = [
   {
-    time: "Morning",
-    text: "Captured one production debugging pattern worth documenting for future me."
+    date: "2026-03-31",
+    label: "Tuesday notebook",
+    intro: "A lightweight public record of what was learned, noticed, and built today.",
+    entries: [
+      {
+        time: "Morning",
+        tag: "Learned",
+        text: "Captured one production debugging pattern worth documenting for future me."
+      },
+      {
+        time: "Afternoon",
+        tag: "Noticed",
+        text: "Walked without headphones. New ideas arrive faster when attention is less crowded."
+      },
+      {
+        time: "Evening",
+        tag: "Building",
+        text: "Reviewed spending, reading, and movement streaks with a bias toward consistency over intensity."
+      }
+    ]
   },
   {
-    time: "Afternoon",
-    text: "Walked without headphones. New ideas arrive faster when attention is less crowded."
+    date: "2026-03-30",
+    label: "Monday notebook",
+    intro: "A short record of what felt worth carrying forward from the day.",
+    entries: [
+      {
+        time: "Morning",
+        tag: "Building",
+        text: "Grouped the technical notes archive into collections so the homepage feels easier to scan."
+      },
+      {
+        time: "Afternoon",
+        tag: "Learned",
+        text: "A cleaner information hierarchy improves usefulness more than adding more UI treatment."
+      },
+      {
+        time: "Evening",
+        tag: "Noticed",
+        text: "Smaller, calmer update rituals make publishing feel sustainable."
+      }
+    ]
   },
   {
-    time: "Evening",
-    text: "Reviewed spending, reading, and movement streaks — consistency over intensity."
+    date: "2026-03-29",
+    label: "Sunday notebook",
+    intro: "A slower day, mostly for review, reading, and making older notes reusable again.",
+    entries: [
+      {
+        time: "Morning",
+        tag: "Reading",
+        text: "Revisited JavaScript closures and finally wrote notes in a way that would help under interview pressure."
+      },
+      {
+        time: "Afternoon",
+        tag: "Travel",
+        text: "A longer walk without a destination made current projects feel less crowded and easier to sequence."
+      },
+      {
+        time: "Evening",
+        tag: "Learned",
+        text: "Future me benefits most when a note includes the reason something was confusing, not just the solution."
+      }
+    ]
   }
 ];
 
