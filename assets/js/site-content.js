@@ -167,6 +167,17 @@ export const technicalNotes = [
         updatedAt: "2026-03-20T22:45:00+05:30"
       }
     ]
+  },
+  {
+    parent: "Mac Terminal Commands",
+    createdAt: "2026-03-31T11:20:00+05:30",
+    children: [
+      {
+        title: "Mac Terminal Commands",
+        href: "technical-notes/mac-terminal-commands.html",
+        updatedAt: "2026-03-31T11:20:00+05:30"
+      }
+    ]
   }
 ];
 

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mac Terminal Commands - Quiet Build</title>
+  <meta name="description" content="Mac Terminal command reference for navigation, listing, file management, and help." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+  <link rel="stylesheet" href="../assets/css/note-page.css" />
+  <script src="../assets/js/theme-init.js"></script>
+</head>
+<body>
+  <div class="topbar"><div class="wrap"><nav><a class="brand" href="../index.html"><span class="dot"></span>Quiet Build</a><div class="menu"><a href="../index.html#technical-notes">Technical Notes</a><a href="../index.html#explore">Explore</a><button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">Theme</button></div></nav></div></div>
+
+  <main class="wrap page-shell">
+    <a class="page-back" href="../index.html#technical-notes">← Back to technical notes</a>
+
+    <section class="card page-hero mac-terminal-hero">
+      <div class="page-meta"><span class="tag">MacOS</span></div>
+      <h1>Mac Terminal Commands</h1>
+      <p>Quick command tables for directory navigation, listing contents, file operations, and help.</p>
+    </section>
+
+    <section class="note-layout">
+      <article class="card note-block">
+        <div class="section-head">
+          <h2>Change Directory</h2>
+          <p class="muted">Move around the filesystem quickly</p>
+        </div>
+        <div class="table-shell">
+          <table class="command-table">
+            <thead>
+              <tr><th>Command</th><th>Description</th><th>Example</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><code>cd</code></td><td>Go to your home directory.</td><td><code>cd</code></td></tr>
+              <tr><td><code>cd ~</code></td><td>Go to home using explicit shortcut.</td><td><code>cd ~</code></td></tr>
+              <tr><td><code>cd /</code></td><td>Go to the filesystem root.</td><td><code>cd /</code></td></tr>
+              <tr><td><code>cd ..</code></td><td>Move up one directory level.</td><td><code>cd ..</code></td></tr>
+              <tr><td><code>cd ../..</code></td><td>Move up two directory levels.</td><td><code>cd ../..</code></td></tr>
+              <tr><td><code>cd -</code></td><td>Switch back to the previous directory.</td><td><code>cd -</code></td></tr>
+              <tr><td><code>cd [folder]</code></td><td>Change into a specific directory.</td><td><code>cd Documents</code></td></tr>
+              <tr><td><code>pwd</code></td><td>Print current working directory path.</td><td><code>pwd</code></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </article>
+
+      <article class="card note-block">
+        <div class="section-head">
+          <h2>List Directory Contents</h2>
+          <p class="muted">Inspect files, metadata, and sort order</p>
+        </div>
+        <div class="table-shell">
+          <table class="command-table">
+            <thead>
+              <tr><th>Command</th><th>Description</th><th>Example</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><code>ls</code></td><td>List files and folders in the current directory.</td><td><code>ls</code></td></tr>
+              <tr><td><code>ls -a</code></td><td>Include hidden files (dotfiles).</td><td><code>ls -a</code></td></tr>
+              <tr><td><code>ls -la</code></td><td>Detailed list including hidden files.</td><td><code>ls -la</code></td></tr>
+              <tr><td><code>ls -l</code></td><td>Long format with permissions, owner, size, and date.</td><td><code>ls -l</code></td></tr>
+              <tr><td><code>ls -lh</code></td><td>Long format with human-readable file sizes.</td><td><code>ls -lh</code></td></tr>
+              <tr><td><code>ls -lt</code></td><td>Sort by modification time (newest first).</td><td><code>ls -lt</code></td></tr>
+              <tr><td><code>ls -S</code></td><td>Sort by file size (largest first).</td><td><code>ls -S</code></td></tr>
+              <tr><td><code>ls -F</code></td><td>Append type markers like <code>/</code> for directories.</td><td><code>ls -F</code></td></tr>
+              <tr><td><code>ls -1</code></td><td>Show one entry per line.</td><td><code>ls -1</code></td></tr>
+              <tr><td><code>ls -C</code></td><td>Show output in multi-column format.</td><td><code>ls -C</code></td></tr>
+              <tr><td><code>ls -l /</code></td><td>Detailed listing of root directory contents.</td><td><code>ls -l /</code></td></tr>
+              <tr><td><code>ls -lo</code></td><td>Show long output with file flags on macOS.</td><td><code>ls -lo</code></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </article>
+
+      <article class="card note-block">
+        <div class="section-head">
+          <h2>File and Directory Management</h2>
+          <p class="muted">Create, copy, move, and delete safely</p>
+        </div>
+        <div class="table-shell">
+          <table class="command-table">
+            <thead>
+              <tr><th>Command</th><th>Description</th><th>Example</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><code>mkdir [dir]</code></td><td>Create a directory.</td><td><code>mkdir Projects</code></td></tr>
+              <tr><td><code>mkdir -p [path]</code></td><td>Create nested directories in one command.</td><td><code>mkdir -p Work/2026/Reports</code></td></tr>
+              <tr><td><code>mkdir "[dir with spaces]"</code></td><td>Create a directory with spaces in its name.</td><td><code>mkdir "My New Folder"</code></td></tr>
+              <tr><td><code>rmdir [dir]</code></td><td>Remove an empty directory.</td><td><code>rmdir EmptyFolder</code></td></tr>
+              <tr><td><code>rm -R [dir]</code></td><td>Remove a directory and all contents recursively.</td><td><code>rm -R OldProject</code></td></tr>
+              <tr><td><code>touch [file]</code></td><td>Create an empty file (or update modified time).</td><td><code>touch notes.txt</code></td></tr>
+              <tr><td><code>cp [file] [dir]</code></td><td>Copy a file to another directory.</td><td><code>cp draft.txt ~/Documents/</code></td></tr>
+              <tr><td><code>cp -i [file] [dir]</code></td><td>Copy with overwrite confirmation prompt.</td><td><code>cp -i report.txt ~/Backup/</code></td></tr>
+              <tr><td><code>cp -R [src_dir] [dest_dir]</code></td><td>Copy an entire directory recursively.</td><td><code>cp -R app "app-backup"</code></td></tr>
+              <tr><td><code>ditto -V [src] [dest]</code></td><td>Copy folders with verbose progress on macOS.</td><td><code>ditto -V ~/A ~/B</code></td></tr>
+              <tr><td><code>mv [file] [new_name]</code></td><td>Rename a file or move it in the same directory.</td><td><code>mv old.txt new.txt</code></td></tr>
+              <tr><td><code>mv [file] [dir]</code></td><td>Move file to another directory.</td><td><code>mv image.png ~/Pictures/</code></td></tr>
+              <tr><td><code>mv -i [file] [dir]</code></td><td>Move with overwrite confirmation prompt.</td><td><code>mv -i data.csv ~/Archive/</code></td></tr>
+              <tr><td><code>mv *.png [dir]</code></td><td>Move all matching files using wildcard.</td><td><code>mv *.png ~/Pictures/</code></td></tr>
+              <tr><td><code>rm [file]</code></td><td>Delete a file permanently.</td><td><code>rm temp.txt</code></td></tr>
+              <tr><td><code>rm -i [file]</code></td><td>Delete a file with confirmation prompt.</td><td><code>rm -i old.txt</code></td></tr>
+              <tr><td><code>rm -f [file]</code></td><td>Force delete without confirmation.</td><td><code>rm -f cache.tmp</code></td></tr>
+              <tr><td><code>rm [file1] [file2] ...</code></td><td>Delete multiple files in one command.</td><td><code>rm a.txt b.txt c.txt</code></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </article>
+
+      <article class="card note-block">
+        <div class="section-head">
+          <h2>HELP Commands</h2>
+          <p class="muted">Discover options and command documentation</p>
+        </div>
+        <div class="table-shell">
+          <table class="command-table">
+            <thead>
+              <tr><th>Command</th><th>Description</th><th>Example</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><code>[command] -h</code></td><td>Show short help output for many commands.</td><td><code>ls -h</code></td></tr>
+              <tr><td><code>[command] --help</code></td><td>Show detailed help/options where supported.</td><td><code>mkdir --help</code></td></tr>
+              <tr><td><code>man [command]</code></td><td>Open the manual page for a command.</td><td><code>man ls</code></td></tr>
+              <tr><td><code>whatis [command]</code></td><td>Show one-line description from man database.</td><td><code>whatis ls</code></td></tr>
+              <tr><td><code>apropos [keyword]</code></td><td>Search man page descriptions by keyword.</td><td><code>apropos copy</code></td></tr>
+              <tr><td><code>which [command]</code></td><td>Show executable path used in your shell.</td><td><code>which git</code></td></tr>
+              <tr><td><code>type [command]</code></td><td>Show if target is binary, alias, function, or builtin.</td><td><code>type cd</code></td></tr>
+              <tr><td><code>reset</code></td><td>Reset terminal display/session state.</td><td><code>reset</code></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="section-note muted">Reference adapted from GeeksforGeeks: Complete Mac Terminal Commands Cheat Sheet (updated July 15, 2025).</p>
+      </article>
+    </section>
+
+    <p class="footer">© 2026 Quiet Build — written quietly, shared intentionally.</p>
+  </main>
+
+  <script type="module" src="../assets/js/main.js"></script>
+</body>
+</html>

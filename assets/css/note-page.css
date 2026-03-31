@@ -560,3 +560,10 @@
     min-width: 560px;
   }
 }
+
+.mac-terminal-hero {
+  background:
+    radial-gradient(circle at 12% 10%, color-mix(in oklab, #22c55e 24%, transparent) 0%, transparent 38%),
+    radial-gradient(circle at 92% 20%, color-mix(in oklab, #38bdf8 18%, transparent) 0%, transparent 34%),
+    linear-gradient(130deg, color-mix(in oklab, var(--surface) 85%, white 15%), var(--surface));
+}
