@@ -259,6 +259,122 @@
     linear-gradient(130deg, color-mix(in oklab, var(--surface) 85%, white 15%), var(--surface));
 }
 
+.dsa-hero {
+  background:
+    radial-gradient(circle at 12% 15%, color-mix(in oklab, #22c55e 26%, transparent) 0%, transparent 38%),
+    radial-gradient(circle at 88% 18%, color-mix(in oklab, #f59e0b 22%, transparent) 0%, transparent 34%),
+    radial-gradient(circle at 50% 100%, color-mix(in oklab, #2563eb 18%, transparent) 0%, transparent 32%),
+    linear-gradient(135deg, color-mix(in oklab, var(--surface) 82%, white 18%), var(--surface));
+}
+
+.subsection-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 0.9rem;
+}
+
+.subsection-card {
+  display: grid;
+  gap: 0.8rem;
+  text-decoration: none;
+  color: inherit;
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+  background: var(--surface-alt);
+  padding: 1rem;
+  transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.subsection-card:hover {
+  transform: translateY(-2px);
+  border-color: color-mix(in oklab, var(--brand) 45%, var(--line));
+  box-shadow: 0 18px 40px color-mix(in oklab, var(--bg) 82%, black 18%);
+}
+
+.subsection-card h3,
+.mini-card h3,
+.flow-step h3 {
+  margin: 0;
+}
+
+.subsection-card p,
+.mini-card p,
+.flow-step p {
+  margin: 0;
+  color: var(--text-soft);
+}
+
+.link-meta {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--brand);
+}
+
+.mini-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0.8rem;
+}
+
+.mini-card {
+  border: 1px solid var(--line);
+  border-radius: 0.9rem;
+  background: var(--surface-alt);
+  padding: 0.95rem;
+  display: grid;
+  gap: 0.6rem;
+}
+
+.flowchart {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.flow-step {
+  position: relative;
+  border: 1px solid var(--line);
+  border-radius: 0.9rem;
+  background: var(--surface-alt);
+  padding: 0.95rem;
+}
+
+.flow-step:not(:last-child)::after {
+  content: "↓";
+  position: absolute;
+  left: 50%;
+  bottom: -0.95rem;
+  transform: translateX(-50%);
+  width: 1.8rem;
+  height: 1.8rem;
+  display: grid;
+  place-items: center;
+  border-radius: 999px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  color: var(--text-soft);
+  font-weight: 700;
+}
+
+.concept-map {
+  width: 100%;
+  height: auto;
+  display: block;
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+  background: linear-gradient(180deg, color-mix(in oklab, var(--surface-alt) 88%, white 12%), var(--surface-alt));
+}
+
+.concept-map text {
+  fill: var(--text);
+  font-family: Inter, sans-serif;
+}
+
+.concept-map .muted {
+  fill: var(--text-soft);
+}
+
 .array-method-section + .array-method-section {
   margin-top: 1.2rem;
 }

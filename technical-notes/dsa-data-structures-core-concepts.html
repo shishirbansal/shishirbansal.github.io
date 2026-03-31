@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Data Structures - Core Concepts - Quiet Build</title>
+  <meta name="description" content="DSA data structures core concepts with a compact concept map and study flow." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+  <link rel="stylesheet" href="../assets/css/note-page.css" />
+  <script src="../assets/js/theme-init.js"></script>
+</head>
+<body>
+  <div class="topbar"><div class="wrap"><nav><a class="brand" href="../index.html"><span class="dot"></span>Quiet Build</a><div class="menu"><a href="../index.html#technical-notes">Technical Notes</a><a href="./dsa-patterns-and-algorithms.html">DSA Index</a><button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">Theme</button></div></nav></div></div>
+  <main class="wrap page-shell">
+    <a class="page-back" href="./dsa-patterns-and-algorithms.html">← Back to DSA Patterns & Algorithms</a>
+    <section class="card page-hero dsa-hero">
+      <div class="page-meta"><span class="tag">DSA</span><span class="tag">Core</span></div>
+      <h1>Data Structures - Core Concepts</h1>
+      <p>Start here if you want the foundations that most coding interview and problem-solving patterns build on.</p>
+    </section>
+    <section class="note-layout">
+      <article class="card note-block">
+        <div class="section-head"><h2>Concept Map</h2><p class="muted">How the main structure families connect</p></div>
+        <svg class="concept-map" viewBox="0 0 760 260" role="img" aria-label="Data structures concept map">
+          <rect x="300" y="22" width="160" height="44" rx="14" fill="color-mix(in oklab, var(--brand) 18%, var(--surface-alt))" stroke="var(--line)" />
+          <text x="380" y="49" text-anchor="middle" font-size="18" font-weight="700">Data Structures</text>
+          <rect x="40" y="116" width="130" height="44" rx="12" fill="var(--surface-alt)" stroke="var(--line)" />
+          <rect x="190" y="116" width="130" height="44" rx="12" fill="var(--surface-alt)" stroke="var(--line)" />
+          <rect x="340" y="116" width="130" height="44" rx="12" fill="var(--surface-alt)" stroke="var(--line)" />
+          <rect x="490" y="116" width="130" height="44" rx="12" fill="var(--surface-alt)" stroke="var(--line)" />
+          <rect x="640" y="116" width="80" height="44" rx="12" fill="var(--surface-alt)" stroke="var(--line)" />
+          <line x1="380" y1="66" x2="105" y2="116" stroke="var(--line)" />
+          <line x1="380" y1="66" x2="255" y2="116" stroke="var(--line)" />
+          <line x1="380" y1="66" x2="405" y2="116" stroke="var(--line)" />
+          <line x1="380" y1="66" x2="555" y2="116" stroke="var(--line)" />
+          <line x1="380" y1="66" x2="680" y2="116" stroke="var(--line)" />
+          <text x="105" y="143" text-anchor="middle" font-size="16" font-weight="600">Arrays</text>
+          <text x="255" y="143" text-anchor="middle" font-size="16" font-weight="600">Linked Lists</text>
+          <text x="405" y="143" text-anchor="middle" font-size="16" font-weight="600">Stacks & Queues</text>
+          <text x="555" y="143" text-anchor="middle" font-size="16" font-weight="600">Hashing</text>
+          <text x="680" y="143" text-anchor="middle" font-size="16" font-weight="600">Heaps</text>
+          <text class="muted" x="380" y="220" text-anchor="middle" font-size="14">Pick by access pattern: index, sequential links, LIFO/FIFO, key lookup, or priority.</text>
+        </svg>
+      </article>
+      <article class="card note-block">
+        <div class="section-head"><h2>Subtopics</h2><p class="muted">Modular blocks from the study board</p></div>
+        <div class="mini-grid">
+          <div class="mini-card"><h3>Arrays & Strings</h3><p>Index-based access, traversal patterns, prefix ideas, in-place updates.</p></div>
+          <div class="mini-card"><h3>Linked Lists</h3><p>Singly and doubly linked lists, cycle detection, reversal, merge patterns.</p></div>
+          <div class="mini-card"><h3>Stacks & Queues</h3><p>Push/pop, FIFO, deque usage, monotonic stack and queue foundations.</p></div>
+          <div class="mini-card"><h3>Hashing & Heaps</h3><p>Hash map or set lookup, collision intuition, min heap, max heap, priority queue.</p></div>
+        </div>
+      </article>
+      <article class="card note-block">
+        <div class="section-head"><h2>Learning Flow</h2><p class="muted">Recommended path for understanding</p></div>
+        <div class="flowchart">
+          <div class="flow-step"><h3>1. Learn shape and memory behavior</h3><p>Understand when data is contiguous, linked, keyed, or prioritized.</p></div>
+          <div class="flow-step"><h3>2. Practice core operations</h3><p>Traverse, insert, delete, reverse, search, and maintain invariants.</p></div>
+          <div class="flow-step"><h3>3. Match structure to problem type</h3><p>Choose the structure that makes the expensive operation cheap.</p></div>
+        </div>
+      </article>
+    </section>
+    <p class="footer">© 2026 Quiet Build — written quietly, shared intentionally.</p>
+  </main>
+  <script type="module" src="../assets/js/main.js"></script>
+</body>
+</html>

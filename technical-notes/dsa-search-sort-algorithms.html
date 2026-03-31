@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Search & Sort - Search & Sort Algorithms - Quiet Build</title>
+  <meta name="description" content="DSA searching, sorting, and two-pointer algorithm overview." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+  <link rel="stylesheet" href="../assets/css/note-page.css" />
+  <script src="../assets/js/theme-init.js"></script>
+</head>
+<body>
+  <div class="topbar"><div class="wrap"><nav><a class="brand" href="../index.html"><span class="dot"></span>Quiet Build</a><div class="menu"><a href="../index.html#technical-notes">Technical Notes</a><a href="./dsa-patterns-and-algorithms.html">DSA Index</a><button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">Theme</button></div></nav></div></div>
+  <main class="wrap page-shell">
+    <a class="page-back" href="./dsa-patterns-and-algorithms.html">← Back to DSA Patterns & Algorithms</a>
+    <section class="card page-hero dsa-hero"><div class="page-meta"><span class="tag">DSA</span><span class="tag">Search + Sort</span></div><h1>Search & Sort - Search & Sort Algorithms</h1><p>These patterns are about finding order, exploiting order, or creating order so the next step is cheap.</p></section>
+    <section class="note-layout">
+      <article class="card note-block"><div class="section-head"><h2>Concept Map</h2><p class="muted">Core families</p></div>
+        <svg class="concept-map" viewBox="0 0 760 250" role="img" aria-label="Search and sort concept map">
+          <rect x="300" y="20" width="160" height="44" rx="14" fill="color-mix(in oklab, var(--brand) 18%, var(--surface-alt))" stroke="var(--line)" />
+          <text x="380" y="47" text-anchor="middle" font-size="18" font-weight="700">Search & Sort</text>
+          <rect x="100" y="110" width="150" height="44" rx="12" fill="var(--surface-alt)" stroke="var(--line)" />
+          <rect x="305" y="110" width="150" height="44" rx="12" fill="var(--surface-alt)" stroke="var(--line)" />
+          <rect x="510" y="110" width="150" height="44" rx="12" fill="var(--surface-alt)" stroke="var(--line)" />
+          <line x1="380" y1="64" x2="175" y2="110" stroke="var(--line)" />
+          <line x1="380" y1="64" x2="380" y2="110" stroke="var(--line)" />
+          <line x1="380" y1="64" x2="585" y2="110" stroke="var(--line)" />
+          <text x="175" y="137" text-anchor="middle" font-size="15" font-weight="600">Searching</text>
+          <text x="380" y="137" text-anchor="middle" font-size="15" font-weight="600">Sorting</text>
+          <text x="585" y="137" text-anchor="middle" font-size="15" font-weight="600">Two Pointers</text>
+          <text class="muted" x="380" y="216" text-anchor="middle" font-size="14">Ask whether the data is sorted already, should be sorted, or can be scanned from both ends.</text>
+        </svg>
+      </article>
+      <article class="card note-block"><div class="section-head"><h2>Subtopics</h2><p class="muted">Patterns worth isolating</p></div><div class="mini-grid"><div class="mini-card"><h3>Searching</h3><p>Linear search, binary search, first or last occurrence, rotated array, peak element.</p></div><div class="mini-card"><h3>Sorting</h3><p>Bubble, insertion, selection, merge, quick, heap, counting, radix, bucket sort.</p></div><div class="mini-card"><h3>Two Pointers</h3><p>Two sum in sorted arrays, partitioning, Dutch flag, remove duplicates, opposite-end scans.</p></div></div></article>
+      <article class="card note-block"><div class="section-head"><h2>Learning Flow</h2><p class="muted">Useful decision path</p></div><div class="flowchart"><div class="flow-step"><h3>1. Check sortedness</h3><p>If the data is sorted, binary search or two pointers should come to mind immediately.</p></div><div class="flow-step"><h3>2. Choose stable or unstable ordering</h3><p>Merge sort is predictable. Quick sort is fast on average. Heaps fit priority use cases.</p></div><div class="flow-step"><h3>3. Reduce scans with pointer movement</h3><p>Two pointers often replace nested loops when order or target constraints exist.</p></div></div></article>
+    </section>
+    <p class="footer">© 2026 Quiet Build — written quietly, shared intentionally.</p>
+  </main>
+  <script type="module" src="../assets/js/main.js"></script>
+</body>
+</html>

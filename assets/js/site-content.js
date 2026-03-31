@@ -60,6 +60,57 @@ export const dailyLogEntries = [
 
 export const technicalNotes = [
   {
+    parent: "DSA Patterns & Algorithms",
+    createdAt: "2026-03-31T18:30:00+05:30",
+    children: [
+      {
+        title: "Data Structures - Core Concepts",
+        href: "technical-notes/dsa-data-structures-core-concepts.html",
+        updatedAt: "2026-03-31T18:30:00+05:30"
+      },
+      {
+        title: "Trees - Tree Algorithms",
+        href: "technical-notes/dsa-trees-tree-algorithms.html",
+        updatedAt: "2026-03-31T18:30:00+05:30"
+      },
+      {
+        title: "Graphs - Graph Algorithms",
+        href: "technical-notes/dsa-graphs-graph-algorithms.html",
+        updatedAt: "2026-03-31T18:30:00+05:30"
+      },
+      {
+        title: "Recursion - Recursive Solutions",
+        href: "technical-notes/dsa-recursion-recursive-solutions.html",
+        updatedAt: "2026-03-31T18:30:00+05:30"
+      },
+      {
+        title: "Search & Sort - Search & Sort Algorithms",
+        href: "technical-notes/dsa-search-sort-algorithms.html",
+        updatedAt: "2026-03-31T18:30:00+05:30"
+      },
+      {
+        title: "Greedy & Windows - Optimization Techniques",
+        href: "technical-notes/dsa-greedy-windows-optimization-techniques.html",
+        updatedAt: "2026-03-31T18:30:00+05:30"
+      },
+      {
+        title: "Dynamic Programming - DP Patterns & Problems",
+        href: "technical-notes/dsa-dynamic-programming-patterns-and-problems.html",
+        updatedAt: "2026-03-31T18:30:00+05:30"
+      },
+      {
+        title: "String Algorithms - String Processing",
+        href: "technical-notes/dsa-string-algorithms-string-processing.html",
+        updatedAt: "2026-03-31T18:30:00+05:30"
+      },
+      {
+        title: "Advanced Topics - Expert Level Concepts",
+        href: "technical-notes/dsa-advanced-topics-expert-level-concepts.html",
+        updatedAt: "2026-03-31T18:30:00+05:30"
+      }
+    ]
+  },
+  {
     parent: "Salesforce Technical Architect",
     createdAt: "2026-03-14T14:30:00+05:30",
     children: [

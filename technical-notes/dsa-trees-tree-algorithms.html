@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Trees - Tree Algorithms - Quiet Build</title>
+  <meta name="description" content="DSA tree algorithms with traversals, BST ideas, and advanced tree patterns." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+  <link rel="stylesheet" href="../assets/css/note-page.css" />
+  <script src="../assets/js/theme-init.js"></script>
+</head>
+<body>
+  <div class="topbar"><div class="wrap"><nav><a class="brand" href="../index.html"><span class="dot"></span>Quiet Build</a><div class="menu"><a href="../index.html#technical-notes">Technical Notes</a><a href="./dsa-patterns-and-algorithms.html">DSA Index</a><button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">Theme</button></div></nav></div></div>
+  <main class="wrap page-shell">
+    <a class="page-back" href="./dsa-patterns-and-algorithms.html">← Back to DSA Patterns & Algorithms</a>
+    <section class="card page-hero dsa-hero"><div class="page-meta"><span class="tag">DSA</span><span class="tag">Trees</span></div><h1>Trees - Tree Algorithms</h1><p>Tree problems are mostly about recursive structure, traversal order, and preserving parent-child invariants.</p></section>
+    <section class="note-layout">
+      <article class="card note-block">
+        <div class="section-head"><h2>Concept Map</h2><p class="muted">A compact tree view</p></div>
+        <svg class="concept-map" viewBox="0 0 760 280" role="img" aria-label="Tree algorithms concept map">
+          <circle cx="380" cy="44" r="28" fill="color-mix(in oklab, var(--brand) 18%, var(--surface-alt))" stroke="var(--line)" />
+          <text x="380" y="50" text-anchor="middle" font-size="17" font-weight="700">Trees</text>
+          <circle cx="170" cy="126" r="24" fill="var(--surface-alt)" stroke="var(--line)" />
+          <circle cx="380" cy="126" r="24" fill="var(--surface-alt)" stroke="var(--line)" />
+          <circle cx="590" cy="126" r="24" fill="var(--surface-alt)" stroke="var(--line)" />
+          <line x1="380" y1="72" x2="170" y2="102" stroke="var(--line)" />
+          <line x1="380" y1="72" x2="380" y2="102" stroke="var(--line)" />
+          <line x1="380" y1="72" x2="590" y2="102" stroke="var(--line)" />
+          <text x="170" y="132" text-anchor="middle" font-size="14" font-weight="600">Binary Tree</text>
+          <text x="380" y="132" text-anchor="middle" font-size="14" font-weight="600">BST</text>
+          <text x="590" y="132" text-anchor="middle" font-size="14" font-weight="600">Advanced</text>
+          <rect x="70" y="198" width="180" height="40" rx="12" fill="var(--surface-alt)" stroke="var(--line)" />
+          <rect x="290" y="198" width="180" height="40" rx="12" fill="var(--surface-alt)" stroke="var(--line)" />
+          <rect x="510" y="198" width="180" height="40" rx="12" fill="var(--surface-alt)" stroke="var(--line)" />
+          <text x="160" y="223" text-anchor="middle" font-size="14" font-weight="600">DFS + BFS Traversals</text>
+          <text x="380" y="223" text-anchor="middle" font-size="14" font-weight="600">Search / Insert / Delete</text>
+          <text x="600" y="223" text-anchor="middle" font-size="14" font-weight="600">Trie / Segment / Fenwick</text>
+        </svg>
+      </article>
+      <article class="card note-block"><div class="section-head"><h2>Subtopics</h2><p class="muted">What to cover from the board</p></div><div class="mini-grid"><div class="mini-card"><h3>Binary Trees</h3><p>Preorder, inorder, postorder, level order, height, diameter, balanced tree checks.</p></div><div class="mini-card"><h3>Binary Search Tree</h3><p>BST property, insertion, deletion, lowest common ancestor, predecessor and successor.</p></div><div class="mini-card"><h3>Advanced Trees</h3><p>AVL or balancing intuition, tries, segment trees, Fenwick trees, prefix search.</p></div></div></article>
+      <article class="card note-block"><div class="section-head"><h2>Learning Flow</h2><p class="muted">Order that reduces confusion</p></div><div class="flowchart"><div class="flow-step"><h3>1. Draw the tree and choose traversal</h3><p>Most tree bugs come from the wrong visit order.</p></div><div class="flow-step"><h3>2. Track what each recursive call returns</h3><p>Height, validity, path info, or aggregate values should be explicit.</p></div><div class="flow-step"><h3>3. Move to specialized trees</h3><p>Use tries for prefixes and indexed trees for range queries or updates.</p></div></div></article>
+    </section>
+    <p class="footer">© 2026 Quiet Build — written quietly, shared intentionally.</p>
+  </main>
+  <script type="module" src="../assets/js/main.js"></script>
+</body>
+</html>
