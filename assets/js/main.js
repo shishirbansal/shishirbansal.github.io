@@ -130,23 +130,65 @@ const renderTechnicalNotes = () => {
     return;
   }
 
-  technicalNotesList.innerHTML = technicalNotes.map(({ children, createdAt, parent }) => `
-    <article class="technical-note">
-      <div class="technical-note-meta">
-        <span class="tag">Technical Note</span>
-        <time datetime="${createdAt}">${formatTimestamp(createdAt)}</time>
+  const totalCollections = technicalNotes.length;
+  const totalEntries = technicalNotes.reduce((sum, { children }) => sum + children.length, 0);
+  const latestUpdate = technicalNotes
+    .flatMap(({ children }) => children.map(({ updatedAt }) => updatedAt))
+    .sort((left, right) => new Date(right) - new Date(left))[0];
+
+  technicalNotesList.innerHTML = `
+    <section class="technical-library-shell">
+      <div class="technical-library-intro">
+        <div class="technical-library-copy">
+          <p class="technical-library-kicker">Editorial Library</p>
+          <h3>Readable collections for concepts that should stay easy to find later.</h3>
+          <p class="muted">
+            The archive is grouped by subject instead of stacked as equal cards, so it feels closer to a study shelf:
+            clearer families, stronger timestamps, and less distance between the title and the note itself.
+          </p>
+        </div>
+        <div class="technical-library-meta">
+          <span>${totalCollections} collections</span>
+          <span>${totalEntries} notes</span>
+          <span>Latest update ${formatTimestamp(latestUpdate)}</span>
+        </div>
       </div>
-      <h3>${parent}</h3>
-      <ol class="technical-note-children">
-        ${children.map((child) => `
-          <li>
-            <a class="technical-note-link" href="${child.href}" target="_blank" rel="noopener noreferrer">${child.title}</a>
-            <time datetime="${child.updatedAt}">${formatTimestamp(child.updatedAt)}</time>
-          </li>
-        `).join("")}
-      </ol>
-    </article>
-  `).join("");
+
+      <div class="technical-library-layout">
+        <aside class="technical-library-index">
+          ${technicalNotes.map(({ children, parent }, index) => `
+            <a class="technical-library-index-link" href="#technical-note-${index + 1}">
+              <span>${String(index + 1).padStart(2, "0")}</span>
+              <strong>${parent}</strong>
+              <small>${children.length} notes</small>
+            </a>
+          `).join("")}
+        </aside>
+
+        <div class="technical-library-groups">
+          ${technicalNotes.map(({ children, createdAt, parent }, index) => `
+            <article class="technical-note" id="technical-note-${index + 1}">
+              <div class="technical-note-meta">
+                <div>
+                  <p class="technical-library-kicker">Collection ${String(index + 1).padStart(2, "0")}</p>
+                  <h3>${parent}</h3>
+                </div>
+                <time datetime="${createdAt}">${formatTimestamp(createdAt)}</time>
+              </div>
+              <ol class="technical-note-children">
+                ${children.map((child) => `
+                  <li>
+                    <a class="technical-note-link" href="${child.href}" target="_blank" rel="noopener noreferrer">${child.title}</a>
+                    <time datetime="${child.updatedAt}">${formatTimestamp(child.updatedAt)}</time>
+                  </li>
+                `).join("")}
+              </ol>
+            </article>
+          `).join("")}
+        </div>
+      </div>
+    </section>
+  `;
 };
 
 const setupHeroParallax = () => {
