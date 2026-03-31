@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Salesforce Diagram - Quiet Build</title>
+  <meta name="description" content="Salesforce Diagram reference: Level 1 System Landscape, Level 2 Solution Architecture, Level 3 Process Flow, and Level 4 Data Model with examples, visuals, and best practices." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+  <link rel="stylesheet" href="../assets/css/note-page.css" />
+
+  <script src="../assets/js/theme-init.js"></script>
+</head>
+<body>
+  <div class="topbar">
+    <div class="wrap">
+      <nav>
+        <a class="brand" href="../index.html">
+          <span class="dot"></span>
+          Quiet Build
+        </a>
+        <div class="menu">
+          <a href="../index.html#salesforce-diagram">Salesforce Diagram</a>
+          <a href="../index.html#technical-notes">Technical Notes</a>
+          <a href="../index.html#explore">Explore</a>
+          <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">Theme</button>
+        </div>
+      </nav>
+    </div>
+  </div>
+
+  <main class="wrap page-shell">
+    <a class="page-back" href="../index.html#salesforce-diagram">← Back to Salesforce Diagram section</a>
+
+    <section class="card page-hero salesforce-diagram-hero">
+      <div class="page-meta">
+        <span class="tag">Salesforce Architecture</span>
+        <time datetime="2026-03-31T10:50:00+05:30">March 31, 2026</time>
+      </div>
+      <h1>Salesforce Diagram</h1>
+      <p>
+        A layered communication framework to align business stakeholders, technical leaders, and implementation teams.
+        Use the right level of detail for the right audience: Level 1 (System Landscape), Level 2 (Solution Architecture),
+        Level 3 (Process Flow), and Level 4 (Data Model).
+      </p>
+    </section>
+
+    <section class="note-layout">
+      <article class="card note-block">
+        <div class="section-head">
+          <h2>Diagram Hierarchy (4 Levels)</h2>
+          <p class="muted">Pick one level per conversation objective</p>
+        </div>
+        <div class="table-shell">
+          <table class="command-table">
+            <thead>
+              <tr>
+                <th>Level</th>
+                <th>Primary Audience</th>
+                <th>Purpose</th>
+                <th>Include</th>
+                <th>Avoid</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Level 1: System Landscape</strong></td>
+                <td>Business Executives</td>
+                <td>Show all major systems and connections</td>
+                <td>System names, integration lines, platform boundaries</td>
+                <td>Objects, field details, step-by-step process logic</td>
+              </tr>
+              <tr>
+                <td><strong>Level 2: Solution Architecture</strong></td>
+                <td>Technical Leaders, Delivery Leads</td>
+                <td>Explain scoped capabilities and high-level data movement</td>
+                <td>Core entities, features, directional data flow</td>
+                <td>Field-by-field data model notation</td>
+              </tr>
+              <tr>
+                <td><strong>Level 3: Process Flow</strong></td>
+                <td>Technical Leaders, Delivery Team</td>
+                <td>Map end-to-end user or system workflow</td>
+                <td>Personas, steps, approvals, hand-offs</td>
+                <td>Low-level schema details</td>
+              </tr>
+              <tr>
+                <td><strong>Level 4: Data Model</strong></td>
+                <td>Developers, Implementation Team</td>
+                <td>Define object structure and relationship behavior</td>
+                <td>Objects, fields, cardinality, relationship type</td>
+                <td>High-level ecosystem narrative</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </article>
+
+      <article class="card note-block">
+        <div class="section-head">
+          <h2>Mind Map (Attached)</h2>
+          <p class="muted">Hierarchy, tools, and standards in one view</p>
+        </div>
+        <figure class="diagram-figure">
+          <img src="../assets/images/salesforce-diagrams-mind-map.png" alt="Mind map of Salesforce diagrams showing hierarchy levels, tools, best practices, and data model symbols." loading="lazy" />
+          <figcaption>Image 1: Mind map summary used as planning scaffold for this guide.</figcaption>
+        </figure>
+      </article>
+
+      <article class="card note-block">
+        <div class="section-head">
+          <h2>System Landscape + Multi-Level Example (Attached)</h2>
+          <p class="muted">Reference board showing level transitions and visual standards</p>
+        </div>
+        <figure class="diagram-figure">
+          <img src="../assets/images/salesforce-diagram-system-landscape.png" alt="Example board titled Mastering the 4 Levels of Salesforce Diagrams with system landscape, solution architecture, process flow, and data model." loading="lazy" />
+          <figcaption>Image 2: End-to-end visual demonstrating how one solution can be represented at four levels.</figcaption>
+        </figure>
+      </article>
+
+      <article class="card note-block">
+        <div class="section-head">
+          <h2>Delivery Playbook</h2>
+          <p class="muted">How to use these diagrams in real client delivery</p>
+        </div>
+        <div class="diagram-level-grid">
+          <section class="diagram-level-card">
+            <h3>Stage 1: Discovery and alignment</h3>
+            <ul class="tips-list">
+              <li>Start with Level 1 to confirm all systems in scope.</li>
+              <li>Validate integration boundaries and ownership early.</li>
+              <li>Use this in stakeholder meetings to prevent scope confusion.</li>
+            </ul>
+          </section>
+          <section class="diagram-level-card">
+            <h3>Stage 2: Solution shape and scope</h3>
+            <ul class="tips-list">
+              <li>Move to Level 2 for features and key entity-level data exchanges.</li>
+              <li>Tag existing scope vs new scope with a color legend.</li>
+              <li>Label directional flow names (for example, payment info, customer ID).</li>
+            </ul>
+          </section>
+          <section class="diagram-level-card">
+            <h3>Stage 3: Process confirmation</h3>
+            <ul class="tips-list">
+              <li>Use Level 3 to resolve workflow ambiguity before build starts.</li>
+              <li>Add personas and approval points so ownership is explicit.</li>
+              <li>Keep steps short and sequential so teams can test by stage.</li>
+            </ul>
+          </section>
+          <section class="diagram-level-card">
+            <h3>Stage 4: Build-ready implementation</h3>
+            <ul class="tips-list">
+              <li>Use Level 4 internally for object design and relationship decisions.</li>
+              <li>Show key fields only; avoid turning it into a full data dictionary.</li>
+              <li>Explicitly mark lookup vs master-detail to avoid downstream rework.</li>
+            </ul>
+          </section>
+        </div>
+      </article>
+
+      <article class="card note-block">
+        <div class="section-head">
+          <h2>Data Model Symbol Quick Guide</h2>
+          <p class="muted">Level 4 interpretation standards</p>
+        </div>
+        <ul class="tips-list">
+          <li><strong>0..*</strong>: Parent can have zero to many children.</li>
+          <li><strong>0..1 (Lookup)</strong>: Child can optionally reference one parent.</li>
+          <li><strong>1..1 / 1..N (Master-Detail)</strong>: Child requires a parent; relationship is tightly bonded.</li>
+          <li><strong>Directional arrow labels</strong>: Clarify what data moves where and why.</li>
+        </ul>
+      </article>
+
+      <article class="card note-block" id="diagram-references">
+        <div class="section-head">
+          <h2>Official References and Tools</h2>
+          <p class="muted">Used to expand this page with source-backed guidance</p>
+        </div>
+        <ul class="tips-list">
+          <li>
+            Salesforce Architects: <a href="https://architect.salesforce.com/diagrams" target="_blank" rel="noopener noreferrer">Diagrams hub</a>
+          </li>
+          <li>
+            Salesforce Architects: <a href="https://architect.salesforce.com/docs/architect/reference-diagrams/guide/system-landscape.html" target="_blank" rel="noopener noreferrer">System Landscape reference diagram</a>
+          </li>
+          <li>
+            Salesforce Well-Architected: <a href="https://architect.salesforce.com/docs/architect/well-architected/guide/intentional.html" target="_blank" rel="noopener noreferrer">Intentional design and communication depth</a>
+          </li>
+          <li>
+            Lucid: <a href="https://lucid.co/templates/salesforce-architecture-diagrams" target="_blank" rel="noopener noreferrer">Salesforce architecture diagram templates</a>
+          </li>
+        </ul>
+      </article>
+    </section>
+
+    <p class="footer">© 2026 Quiet Build — written quietly, shared intentionally.</p>
+  </main>
+
+  <script type="module" src="../assets/js/main.js"></script>
+</body>
+</html>

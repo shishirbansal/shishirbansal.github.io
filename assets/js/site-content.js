@@ -64,6 +64,11 @@ export const technicalNotes = [
     createdAt: "2026-03-14T14:30:00+05:30",
     children: [
       {
+        title: "Salesforce Diagram",
+        href: "technical-notes/salesforce-diagrams.html",
+        updatedAt: "2026-03-31T10:50:00+05:30"
+      },
+      {
         title: "Sharing and Visibility",
         href: "technical-notes/sharing-and-visibility.html",
         updatedAt: "2026-03-14T20:15:00+05:30"

@@ -206,6 +206,52 @@
   white-space: pre;
 }
 
+.salesforce-diagram-hero {
+  background:
+    radial-gradient(circle at 8% 8%, color-mix(in oklab, #2e7df6 26%, transparent) 0%, transparent 42%),
+    radial-gradient(circle at 95% 20%, color-mix(in oklab, #22c55e 20%, transparent) 0%, transparent 35%),
+    linear-gradient(130deg, color-mix(in oklab, var(--surface) 84%, white 16%), var(--surface));
+}
+
+.diagram-figure {
+  margin: 0;
+  border: 1px solid var(--line);
+  border-radius: 0.95rem;
+  background: var(--surface-alt);
+  padding: 0.7rem;
+}
+
+.diagram-figure img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 0.7rem;
+}
+
+.diagram-figure figcaption {
+  margin-top: 0.55rem;
+  color: var(--text-soft);
+  font-size: 0.8rem;
+}
+
+.diagram-level-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 0.8rem;
+}
+
+.diagram-level-card {
+  border: 1px solid var(--line);
+  border-radius: 0.9rem;
+  background: var(--surface-alt);
+  padding: 0.9rem;
+}
+
+.diagram-level-card h3 {
+  margin: 0 0 0.6rem;
+  font-size: 0.95rem;
+}
+
 .array-hero {
   background:
     radial-gradient(circle at 0% 0%, color-mix(in oklab, var(--brand) 25%, transparent) 0%, transparent 45%),
