@@ -382,50 +382,6 @@ section {
   padding: 1rem;
 }
 
-.salesforce-diagram-card {
-  display: grid;
-  gap: 0.9rem;
-}
-
-.salesforce-diagram-summary {
-  margin: 0;
-  color: var(--text-soft);
-  max-width: 72ch;
-}
-
-.salesforce-diagram-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.6rem;
-}
-
-.salesforce-diagram-preview-grid {
-  display: grid;
-  gap: 0.75rem;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-}
-
-.salesforce-diagram-preview {
-  margin: 0;
-  border: 1px solid var(--line);
-  border-radius: 0.9rem;
-  background: var(--surface-alt);
-  padding: 0.6rem;
-}
-
-.salesforce-diagram-preview img {
-  width: 100%;
-  height: auto;
-  display: block;
-  border-radius: 0.6rem;
-}
-
-.salesforce-diagram-preview figcaption {
-  font-size: 0.78rem;
-  color: var(--text-soft);
-  margin-top: 0.45rem;
-}
-
 .section-head {
   display: flex;
   align-items: center;
