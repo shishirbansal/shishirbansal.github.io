@@ -45,12 +45,93 @@ const renderDailyLog = () => {
     return;
   }
 
-  dailyLogList.innerHTML = dailyLogEntries.map(({ text, time }) => `
-    <li>
-      <time>${time}</time>
-      <span>${text}</span>
-    </li>
-  `).join("");
+  const formatDay = (dateValue) => new Intl.DateTimeFormat("en-US", {
+    weekday: "long",
+    month: "long",
+    day: "numeric",
+    year: "numeric"
+  }).format(new Date(dateValue));
+
+  const renderDay = (selectedDate) => {
+    const selectedDay = dailyLogEntries.find(({ date }) => date === selectedDate) || dailyLogEntries[0];
+    const formattedDate = formatDay(selectedDay.date);
+
+    return `
+      <section class="daily-journal-shell">
+        <div class="daily-log-filter-bar">
+          <div class="daily-log-filter-copy">
+            <p class="daily-journal-kicker">Browse by date</p>
+            <p class="muted">Pick any day to reopen that notebook entry later.</p>
+          </div>
+          <div class="daily-log-filter-buttons" role="tablist" aria-label="Daily log by date">
+            ${dailyLogEntries.map(({ date }) => `
+              <button class="daily-log-filter-btn${date === selectedDay.date ? " active" : ""}" type="button" data-log-date="${date}">
+                ${new Intl.DateTimeFormat("en-US", { month: "short", day: "numeric" }).format(new Date(date))}
+              </button>
+            `).join("")}
+          </div>
+        </div>
+
+        <div class="daily-journal-intro">
+          <div>
+            <p class="daily-journal-kicker">${selectedDay.label}</p>
+            <h3>${formattedDate}</h3>
+          </div>
+          <p class="muted">${selectedDay.intro}</p>
+        </div>
+
+        <div class="daily-journal-summary">
+          <div>
+            <span>Entries</span>
+            <strong>${selectedDay.entries.length}</strong>
+          </div>
+          <div>
+            <span>First note</span>
+            <strong>${selectedDay.entries[0]?.time || "N/A"}</strong>
+          </div>
+          <div>
+            <span>Last note</span>
+            <strong>${selectedDay.entries[selectedDay.entries.length - 1]?.time || "N/A"}</strong>
+          </div>
+        </div>
+
+        <ol class="daily-journal-list construction-log-list">
+          ${selectedDay.entries.map(({ tag, text, time }, index) => `
+            <li class="daily-journal-entry construction-log-entry">
+              <div class="daily-journal-time construction-log-cell">
+                <span class="construction-log-label">Time</span>
+                <time>${time}</time>
+              </div>
+              <div class="daily-journal-content construction-log-cell">
+                <span class="construction-log-label">Type</span>
+                <span class="daily-journal-tag">${tag}</span>
+              </div>
+              <div class="daily-journal-note construction-log-cell">
+                <span class="construction-log-label">Log entry ${String(index + 1).padStart(2, "0")}</span>
+                <p>${text}</p>
+              </div>
+            </li>
+          `).join("")}
+        </ol>
+      </section>
+    `;
+  };
+
+  const initialDate = dailyLogEntries[0]?.date;
+  dailyLogList.innerHTML = renderDay(initialDate);
+
+  const bindFilterEvents = () => {
+    const filterButtons = dailyLogList.querySelectorAll("[data-log-date]");
+
+    filterButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        dailyLogList.innerHTML = renderDay(button.dataset.logDate);
+        bindFilterEvents();
+      });
+    });
+  };
+
+  bindFilterEvents();
 };
 
 const renderCurrentFocus = () => {
