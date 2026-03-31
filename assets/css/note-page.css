@@ -18,9 +18,14 @@
 }
 
 .page-hero {
-  padding: clamp(1.2rem, 2.8vw, 2rem);
+  padding: clamp(1.35rem, 3vw, 2.2rem);
   display: grid;
   gap: 0.8rem;
+  border-radius: 1.2rem;
+  background:
+    linear-gradient(180deg, color-mix(in srgb, var(--surface) 96%, white 4%), color-mix(in srgb, var(--surface) 88%, var(--surface-alt) 12%)),
+    var(--surface);
+  box-shadow: none;
 }
 
 .page-meta {
@@ -47,9 +52,10 @@
 .page-hero h1 {
   margin: 0;
   font-family: "Source Serif 4", Georgia, serif;
-  font-size: clamp(1.9rem, 5vw, 3rem);
-  line-height: 1.1;
-  letter-spacing: -0.03em;
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  line-height: 1;
+  letter-spacing: -0.04em;
+  max-width: 14ch;
 }
 
 .page-hero p {
@@ -60,17 +66,29 @@
 
 .note-layout {
   display: grid;
-  gap: 1rem;
-  margin-top: 1rem;
+  gap: 1.35rem;
+  margin-top: 1.2rem;
 }
 
 .note-block {
-  padding: 1rem;
+  padding: 0 0 1.2rem;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  background: transparent;
+  border-bottom: 1px solid var(--line);
 }
 
 .note-block h2 {
-  font-size: 1rem;
+  font-size: clamp(1.2rem, 2vw, 1.55rem);
   margin-bottom: 0.75rem;
+  font-family: "Source Serif 4", Georgia, serif;
+  letter-spacing: -0.02em;
+}
+
+.note-block .section-head {
+  margin-bottom: 1rem;
+  align-items: end;
 }
 
 .curriculum-grid {
@@ -81,7 +99,7 @@
 .curriculum-week {
   border: 1px solid var(--line);
   border-radius: 0.85rem;
-  background: var(--surface-alt);
+  background: color-mix(in srgb, var(--surface) 55%, var(--surface-alt));
   padding: 0.9rem;
 }
 
@@ -119,7 +137,7 @@
 .summary-stat {
   border: 1px solid var(--line);
   border-radius: 0.85rem;
-  background: var(--surface-alt);
+  background: color-mix(in srgb, var(--surface) 65%, var(--surface-alt));
   padding: 0.9rem;
 }
 
@@ -142,6 +160,7 @@
   -webkit-overflow-scrolling: touch;
   border: 1px solid var(--line);
   border-radius: 0.85rem;
+  background: color-mix(in srgb, var(--surface) 80%, var(--surface-alt));
 }
 
 .command-table {
@@ -163,7 +182,7 @@
   text-transform: uppercase;
   letter-spacing: 0.05em;
   color: var(--text-soft);
-  background: var(--surface-alt);
+  background: color-mix(in srgb, var(--surface-alt) 75%, var(--surface));
 }
 
 .command-table td code {
@@ -183,7 +202,7 @@
 .example-card {
   border: 1px solid var(--line);
   border-radius: 0.85rem;
-  background: var(--surface-alt);
+  background: color-mix(in srgb, var(--surface) 60%, var(--surface-alt));
   padding: 0.9rem;
 }
 
@@ -217,7 +236,7 @@
   margin: 0;
   border: 1px solid var(--line);
   border-radius: 0.95rem;
-  background: var(--surface-alt);
+  background: color-mix(in srgb, var(--surface) 70%, var(--surface-alt));
   padding: 0.7rem;
 }
 
@@ -243,7 +262,7 @@
 .diagram-level-card {
   border: 1px solid var(--line);
   border-radius: 0.9rem;
-  background: var(--surface-alt);
+  background: color-mix(in srgb, var(--surface) 55%, var(--surface-alt));
   padding: 0.9rem;
 }
 
@@ -257,6 +276,16 @@
     radial-gradient(circle at 0% 0%, color-mix(in oklab, var(--brand) 25%, transparent) 0%, transparent 45%),
     radial-gradient(circle at 100% 100%, color-mix(in oklab, #ffb347 22%, transparent) 0%, transparent 40%),
     linear-gradient(130deg, color-mix(in oklab, var(--surface) 85%, white 15%), var(--surface));
+}
+
+@media (max-width: 620px) {
+  .page-hero {
+    padding: 1rem;
+  }
+
+  .note-block .section-head {
+    align-items: flex-start;
+  }
 }
 
 .dsa-hero {
