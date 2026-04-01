@@ -197,6 +197,11 @@ export const technicalNotes = [
         title: "Record Locking",
         href: "technical-notes/record-locking.html",
         updatedAt: "2026-03-30T10:56:00+05:30"
+      },
+      {
+        title: "Salesforce Licenses",
+        href: "technical-notes/salesforce-licenses.html",
+        updatedAt: "2026-04-01T11:50:00+05:30"
       }
     ]
   },
