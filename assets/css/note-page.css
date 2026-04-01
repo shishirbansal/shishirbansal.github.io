@@ -246,8 +246,15 @@
   gap: 0.8rem;
 }
 
+.license-stack-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0.8rem;
+}
+
 .license-family-card,
-.license-comparison-card {
+.license-comparison-card,
+.license-stack-card {
   border: 1px solid var(--line);
   border-radius: 0.9rem;
   background: color-mix(in srgb, var(--surface) 60%, var(--surface-alt));
@@ -255,16 +262,68 @@
 }
 
 .license-family-card h3,
-.license-comparison-card h3 {
+.license-comparison-card h3,
+.license-stack-card h3 {
   margin: 0 0 0.65rem;
   font-size: 1rem;
   letter-spacing: -0.01em;
 }
 
 .license-family-card p,
-.license-comparison-card p {
+.license-comparison-card p,
+.license-stack-card p {
   margin-top: 0;
   color: var(--text-soft);
+}
+
+.license-stack-label {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  margin-bottom: 0.7rem;
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+  border: 1px solid color-mix(in srgb, var(--brand) 22%, var(--line));
+  background: color-mix(in srgb, var(--brand-soft) 60%, var(--surface));
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.license-model-flow {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr) auto minmax(0, 1fr);
+  gap: 0.8rem;
+  align-items: stretch;
+}
+
+.license-model-step {
+  border: 1px solid var(--line);
+  border-radius: 0.9rem;
+  background: color-mix(in srgb, var(--surface) 72%, var(--surface-alt));
+  padding: 1rem;
+  display: grid;
+  gap: 0.55rem;
+}
+
+.license-model-step strong {
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+.license-model-step p {
+  margin: 0;
+  color: var(--text-soft);
+}
+
+.license-model-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--brand);
+  font-size: 1.35rem;
+  font-weight: 700;
 }
 
 .diagram-figure {
@@ -320,6 +379,14 @@
 
   .note-block .section-head {
     align-items: flex-start;
+  }
+
+  .license-model-flow {
+    grid-template-columns: 1fr;
+  }
+
+  .license-model-arrow {
+    transform: rotate(90deg);
   }
 }
 

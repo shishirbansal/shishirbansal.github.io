@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Salesforce Licenses - Quiet Build</title>
-  <meta name="description" content="A practical Salesforce license guide covering identity licenses, Chatter licenses, and key internal, external, and industry license families." />
+  <meta name="description" content="A practical Salesforce license guide covering platform, user, and permission set licenses, plus identity, Chatter, internal, external, and industry license families." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -41,9 +41,9 @@
       </div>
       <h1>Salesforce Licenses</h1>
       <p>
-        A compact reference for understanding how Salesforce groups identity, collaboration, internal-user,
-        external-user, and industry licenses. The goal is not to memorize every SKU, but to quickly choose
-        the right license family for the right user and access pattern.
+        A practical guide to how Salesforce licenses actually work: platform licenses, user licenses,
+        permission set licenses, editions, add-ons, and the license families most architects keep comparing
+        in real org design.
       </p>
     </section>
 
@@ -51,12 +51,67 @@
       <article class="card note-block">
         <div class="section-head">
           <h2>How to read this guide</h2>
-          <p class="muted">License family first, capability detail second</p>
+          <p class="muted">Concept first, family second, user access last</p>
         </div>
         <ul class="tips-list">
-          <li>Start by identifying the user type: internal employee, external user, Chatter-only collaborator, or industry-specific user.</li>
-          <li>Use license families as the first filter, then compare the exact features needed such as CRM objects, files, reports, dashboards, or community access.</li>
-          <li>Treat this page as a decision aid and the attached PDF as the source board you can revisit when you need the detailed mapping.</li>
+          <li>Start by deciding what level the requirement belongs to: org-wide platform capability, user-level access, or user-level extension.</li>
+          <li>Then identify the user type: internal employee, external user, Chatter-only collaborator, or industry-specific role.</li>
+          <li>Use license families as the filter, then compare the exact features needed such as CRM objects, files, reports, dashboards, or community access.</li>
+        </ul>
+      </article>
+
+      <article class="card note-block">
+        <div class="section-head">
+          <h2>How Licenses Work</h2>
+          <p class="muted">Trailhead concept model, reduced to the parts that matter most</p>
+        </div>
+        <div class="license-stack-grid">
+          <section class="license-stack-card">
+            <span class="license-stack-label">Platform license</span>
+            <h3>Org-level capability</h3>
+            <p>Defines functionality for the org as a whole. Think of this as what the environment can support before you decide which individual users get what.</p>
+          </section>
+          <section class="license-stack-card">
+            <span class="license-stack-label">User license</span>
+            <h3>One per user</h3>
+            <p>Each user gets one user license. That license establishes the core functional boundary for that person’s role in the org.</p>
+          </section>
+          <section class="license-stack-card">
+            <span class="license-stack-label">Permission set license</span>
+            <h3>Add extra capability</h3>
+            <p>Used to extend a user beyond the base user license. A user can have multiple permission set licenses when extra product capability is needed.</p>
+          </section>
+        </div>
+      </article>
+
+      <article class="card note-block">
+        <div class="section-head">
+          <h2>Editions, Add-ons, and Settings Licenses</h2>
+          <p class="muted">The packaging model Trailhead clarifies well</p>
+        </div>
+        <div class="license-model-flow">
+          <div class="license-model-step">
+            <span class="license-stack-label">Settings licenses</span>
+            <strong>Platform + User + Permission Set</strong>
+            <p>These are the building blocks that describe functionality.</p>
+          </div>
+          <div class="license-model-arrow" aria-hidden="true">→</div>
+          <div class="license-model-step">
+            <span class="license-stack-label">Product licenses</span>
+            <strong>Editions + Add-ons</strong>
+            <p>These package the settings licenses into something customers actually purchase.</p>
+          </div>
+          <div class="license-model-arrow" aria-hidden="true">→</div>
+          <div class="license-model-step">
+            <span class="license-stack-label">Real-world choice</span>
+            <strong>Buy the package, assign the access</strong>
+            <p>Architecturally, you design from user need backward into the edition and add-on mix.</p>
+          </div>
+        </div>
+        <ul class="tips-list">
+          <li>An org has one edition license that establishes the main baseline of functionality.</li>
+          <li>An org can have multiple add-ons or none at all.</li>
+          <li>You do not buy individual permissions directly; permissions and preferences are bundled into licenses.</li>
         </ul>
       </article>
 
@@ -114,7 +169,7 @@
       <article class="card note-block">
         <div class="section-head">
           <h2>What The PDF Compares</h2>
-          <p class="muted">Useful comparison dimensions called out directly in the source sheet</p>
+          <p class="muted">Useful comparison dimensions called out directly in the source license board</p>
         </div>
         <div class="license-comparison-grid">
           <section class="license-comparison-card">
@@ -135,6 +190,31 @@
               <li>Whether it is meant for internal users or external/community users</li>
               <li>Whether it maps to a core cloud, a community model, or an industry package</li>
               <li>How much platform customization and object access the user is expected to need</li>
+            </ul>
+          </section>
+        </div>
+      </article>
+
+      <article class="card note-block">
+        <div class="section-head">
+          <h2>Provisioning and Sandbox Notes</h2>
+          <p class="muted">The operational detail that is easy to forget during design</p>
+        </div>
+        <div class="license-comparison-grid">
+          <section class="license-comparison-card">
+            <h3>Provisioning applies when</h3>
+            <ul class="tips-list">
+              <li>You make an initial Salesforce purchase and the org is activated.</li>
+              <li>You purchase an upgrade or add-on.</li>
+              <li>A license definition changes as part of a Salesforce patch release.</li>
+            </ul>
+          </section>
+          <section class="license-comparison-card">
+            <h3>Environment caveats</h3>
+            <ul class="tips-list">
+              <li>Provisioning applies to production orgs, not automatically to every sandbox.</li>
+              <li>Sandbox license state can require refresh or matching production licenses to stay aligned.</li>
+              <li>Demo, Developer, Scratch, and Trial orgs behave differently from production licensing flows.</li>
             </ul>
           </section>
         </div>
@@ -187,10 +267,28 @@
           <p class="muted">A fast way to think before you compare details</p>
         </div>
         <ul class="tips-list">
+          <li><strong>Edition</strong>: the main product package the org runs on.</li>
+          <li><strong>Add-on</strong>: the optional package that extends the org.</li>
           <li><strong>Identity</strong>: who can get in and how.</li>
           <li><strong>Chatter</strong>: who can collaborate and share.</li>
           <li><strong>Core CRM</strong>: who can work inside the business process.</li>
+          <li><strong>Permission Set License</strong>: extra capability layered onto a user.</li>
           <li><strong>Community / Industry</strong>: who needs access outside the employee model or within a specialized cloud.</li>
+        </ul>
+      </article>
+
+      <article class="card note-block">
+        <div class="section-head">
+          <h2>Official Learning Reference</h2>
+          <p class="muted">Best starting point for the conceptual model used on this page</p>
+        </div>
+        <ul class="tips-list">
+          <li>
+            Trailhead: <a href="https://trailhead.salesforce.com/content/learn/modules/salesforce-licensing/understand-how-licenses-work" target="_blank" rel="noopener noreferrer">Understand How Licenses Work</a>
+          </li>
+          <li>
+            Use Trailhead for the formal platform, user, permission set, edition, and add-on vocabulary; use this page for the faster architecture-oriented summary.
+          </li>
         </ul>
       </article>
 
